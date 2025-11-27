@@ -9,15 +9,10 @@
   --gray-50:#F1F3F4;
 }
 
-/* Global reset */
 * {
   box-sizing:border-box;
   margin:0;
   padding:0;
-}
-
-html, body {
-  min-height:100%;
 }
 
 body {
@@ -33,11 +28,9 @@ body {
   margin:0 auto;
   padding:0 20px;
 }
-
 .section {
   padding:72px 0;
 }
-
 .split {
   display:grid;
   gap:28px;
@@ -56,19 +49,16 @@ h3 {
   font-family:"Bodoni Moda",serif;
   line-height:1.15;
 }
-
 h1 {
   font-size:clamp(40px,5vw,56px);
   margin-bottom:12px;
   color:#fff;
 }
-
 h2 {
   font-size:clamp(28px,3.5vw,36px);
   margin-bottom:10px;
   color:#1b2439;
 }
-
 h3 {
   font-size:clamp(20px,2.5vw,24px);
   margin-bottom:8px;
@@ -99,22 +89,18 @@ h3 {
   font-weight:700;
   transition:.2s;
 }
-
 .btn-gold {
   background:var(--gold);
   color:#1b2439;
 }
-
 .btn-gold:hover {
   filter:brightness(.96);
 }
-
 .btn-ghost {
   background:transparent;
   color:#fff;
   border:2px solid #fff;
 }
-
 .btn-ghost:hover {
   background:rgba(255,255,255,.1);
 }
@@ -125,7 +111,6 @@ h3 {
   padding:72px 0 48px;
   border-bottom:1px solid rgba(255,255,255,.1);
 }
-
 .hero .cta-row {
   display:flex;
   gap:14px;
@@ -181,20 +166,18 @@ h3 {
   margin:0;
   padding:0;
 }
-
 .check li {
   position:relative;
   padding-left:26px;
   margin:8px 0;
   color:#2c354d;
 }
-
 .check li::before {
   content:"✓";
   position:absolute;
   left:0;
   top:0;
-  color:var(--gold);
+  color:#gold;
   font-weight:700;
 }
 
@@ -211,14 +194,21 @@ h3 {
   margin-top:12px;
 }
 
-/* FOOTER — clean, centered, one column, with reliable bottom padding */
+/* FOOTER — clean, centered, one column, with extra bottom padding for mobile */
 .footer {
   background:var(--blue-900);
   border-top:1px solid rgba(255,255,255,.08);
   /* top | left/right | bottom */
-  padding:60px 0 100px;
+  padding:60px 0 130px;
   text-align:center;
   color:#ffffff;
+}
+
+/* On larger screens keep it roomy but not huge */
+@media (min-width:768px) {
+  .footer {
+    padding:80px 0 120px;
+  }
 }
 
 /* Wrapper: always stacked & centered */
@@ -277,4 +267,9 @@ h3 {
 .small {
   font-size:.9rem;
   color:#ffffff;
+}
+
+/* Remove extra space above footer on the last section only */
+.section:last-of-type {
+  padding-bottom:0;
 }
