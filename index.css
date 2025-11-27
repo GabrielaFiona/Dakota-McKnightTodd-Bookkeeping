@@ -263,8 +263,9 @@ h3 {
 /* --- FINAL SPACING ADJUSTMENTS --- */
 
 /* Reduce footer padding on mobile */
+
 .footer {
-  padding:40px 0;
+  padding:60px 0;
 }
 
 @media (min-width:768px) {
@@ -276,4 +277,20 @@ h3 {
 /* Remove awkward space above footer */
 .section:last-of-type {
   padding-bottom:0;
+}
+/* Add comfortable bottom spacing so footer is readable on all mobile browsers */
+.footer {
+  padding-bottom: 100px !important; /* adjust as needed */
+}
+
+/* On larger screens, keep spacing reasonable */
+@media (min-width: 768px) {
+  .footer {
+    padding-bottom: 80px !important;
+  }
+}
+
+/* For iPhones with bottom safe areas */
+.footer {
+  padding-bottom: calc(80px + env(safe-area-inset-bottom)) !important;
 }
