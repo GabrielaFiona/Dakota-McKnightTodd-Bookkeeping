@@ -260,3 +260,20 @@ h3 {
   font-size:.9rem;
   color:#ffffff;
 }
+/* --- FINAL SPACING ADJUSTMENTS --- */
+
+/* Reduce footer padding on mobile */
+.footer {
+  padding:40px 0;
+}
+
+@media (min-width:768px) {
+  .footer {
+    padding:80px 0;
+  }
+}
+
+/* Remove awkward space above footer */
+.section:last-of-type {
+  padding-bottom:0;
+}
