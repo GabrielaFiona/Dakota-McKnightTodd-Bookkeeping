@@ -2,20 +2,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@500;700&family=Cormorant+Garamond:wght@400;600&family=Lora:wght@400;600&display=swap");
 
 /* Brand */
-:root {
+:root{
   --blue-900:#323C54;
   --blue-300:#8190BE;
   --gold:#C99B41;
   --gray-50:#F1F3F4;
 }
 
-* {
+*{
   box-sizing:border-box;
   margin:0;
   padding:0;
 }
 
-body {
+body{
   font-family:"Lora",serif;
   background:var(--blue-900);
   color:#222;
@@ -23,57 +23,48 @@ body {
 }
 
 /* Layout */
-.container {
+.container{
   max-width:1100px;
   margin:0 auto;
   padding:0 20px;
 }
-.section {
-  padding:72px 0;
-}
-.split {
-  display:grid;
-  gap:28px;
-}
+.section{padding:72px 0;}
+.split{display:grid;gap:28px;}
 
-@media (min-width:880px) {
-  .split {
+@media(min-width:880px){
+  .split{
     grid-template-columns:1.2fr .8fr;
   }
 }
 
 /* Type */
-h1,
-h2,
-h3 {
+h1,h2,h3{
   font-family:"Bodoni Moda",serif;
   line-height:1.15;
 }
-h1 {
+h1{
   font-size:clamp(40px,5vw,56px);
   margin-bottom:12px;
   color:#fff;
 }
-h2 {
+h2{
   font-size:clamp(28px,3.5vw,36px);
   margin-bottom:10px;
   color:#1b2439;
 }
-h3 {
+h3{
   font-size:clamp(20px,2.5vw,24px);
   margin-bottom:8px;
 }
 
-.lead {
+.lead{
   font-size:1.125rem;
   color:#dbe3ff;
 }
 
-.muted {
-  color:#4a5167;
-}
+.muted{color:#4a5167;}
 
-.accent-line {
+.accent-line{
   width:80px;
   height:3px;
   background:var(--gold);
@@ -81,7 +72,7 @@ h3 {
 }
 
 /* Buttons */
-.btn {
+.btn{
   display:inline-block;
   padding:12px 18px;
   border-radius:8px;
@@ -89,29 +80,29 @@ h3 {
   font-weight:700;
   transition:.2s;
 }
-.btn-gold {
+.btn-gold{
   background:var(--gold);
   color:#1b2439;
 }
-.btn-gold:hover {
+.btn-gold:hover{
   filter:brightness(.96);
 }
-.btn-ghost {
+.btn-ghost{
   background:transparent;
   color:#fff;
   border:2px solid #fff;
 }
-.btn-ghost:hover {
+.btn-ghost:hover{
   background:rgba(255,255,255,.1);
 }
 
 /* Hero */
-.hero {
+.hero{
   color:#fff;
   padding:72px 0 48px;
   border-bottom:1px solid rgba(255,255,255,.1);
 }
-.hero .cta-row {
+.hero .cta-row{
   display:flex;
   gap:14px;
   flex-wrap:wrap;
@@ -119,14 +110,14 @@ h3 {
 }
 
 /* KPI tiles (clickable) */
-.kpis {
+.kpis{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
   gap:12px;
   margin-top:30px;
 }
 
-.kpi {
+.kpi{
   display:block;
   text-decoration:none;
   background:rgba(255,255,255,.08);
@@ -135,58 +126,54 @@ h3 {
   padding:16px;
   text-align:center;
   color:#e8edff;
-  transition:transform .15s ease,
-             background .15s ease,
-             border-color .15s ease;
+  transition:transform .15s ease, background .15s ease, border-color .15s ease;
   cursor:pointer;
 }
 
-.kpi strong {
+.kpi strong{
   display:block;
   font-size:22px;
   color:#fff;
 }
 
-.kpi:hover {
+.kpi:hover{
   transform:translateY(-1px);
   background:rgba(255,255,255,.12);
   border-color:rgba(255,255,255,.25);
 }
 
 /* Cards */
-.card {
+.card{
   background:var(--gray-50);
   border-radius:10px;
   padding:24px;
   box-shadow:0 6px 20px rgba(0,0,0,.08);
 }
 
-.check {
+.check{
   list-style:none;
   margin:0;
   padding:0;
 }
-.check li {
+.check li{
   position:relative;
   padding-left:26px;
   margin:8px 0;
   color:#2c354d;
 }
-.check li::before {
+.check li::before{
   content:"✓";
   position:absolute;
   left:0;
   top:0;
-  color:#gold;
+  color:var(--gold);
   font-weight:700;
 }
 
 /* Utility */
-.text-on-dark {
-  color:#e8edff;
-}
+.text-on-dark{color:#e8edff;}
 
-.btn-row {
+.btn-row{
   display:flex;
   gap:10px;
   flex-wrap:wrap;
@@ -194,25 +181,18 @@ h3 {
   margin-top:12px;
 }
 
-/* FOOTER — clean, centered, one column, with extra bottom padding for mobile */
-.footer {
+/* FOOTER — centered, single-column, with comfortable bottom space */
+.footer{
   background:var(--blue-900);
   border-top:1px solid rgba(255,255,255,.08);
   /* top | left/right | bottom */
-  padding:60px 0 130px;
+  padding:64px 0 140px;
   text-align:center;
-  color:#ffffff;
+  color:#e7ecff;
 }
 
-/* On larger screens keep it roomy but not huge */
-@media (min-width:768px) {
-  .footer {
-    padding:80px 0 120px;
-  }
-}
-
-/* Wrapper: always stacked & centered */
-.footer .wrap {
+/* Footer wrapper */
+.footer .wrap{
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -221,55 +201,42 @@ h3 {
   text-align:center;
 }
 
-/* Logo / brand area */
-.brand-inline {
+/* center logo + name */
+.brand-inline{
   display:flex;
   align-items:center;
-  justify-content:center;
   gap:10px;
+  justify-content:center;
 }
 
-.brand-inline img {
+.brand-inline img{
   height:40px;
   width:auto;
 }
 
-.brand-inline span {
+.brand-inline span{
   font-family:"Cormorant Garamond",serif;
   font-weight:600;
-  color:#ffffff;
+  color:#fff;
 }
 
-/* Links & text */
-.footer .links {
+/* center footer link list */
+.footer .links{
   text-align:center;
 }
 
-.footer a {
-  color:#ffffff;
+.footer a{
+  color:#e7ecff;
   text-decoration:none;
 }
-
-.footer a:hover {
-  opacity:0.85;
+.footer a:hover{
+  color:#fff;
 }
 
-/* Divider line */
-.rule {
+.rule{
   height:1px;
-  width:100%;
-  max-width:300px;
-  margin:12px auto;
-  background:rgba(255,255,255,.2);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);
+  margin:18px 0;
 }
 
-/* Small footer text */
-.small {
-  font-size:.9rem;
-  color:#ffffff;
-}
-
-/* Remove extra space above footer on the last section only */
-.section:last-of-type {
-  padding-bottom:80
-}
+.small{font-size:.9rem;}
