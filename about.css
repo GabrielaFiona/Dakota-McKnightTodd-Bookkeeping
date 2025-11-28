@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@500;700&family=Cormorant+Garamond:wght@400;600&family=Lora:wght@400;600&display=swap");
+
+:root{
+  --blue-900:#323C54;
+  --blue-300:#8190BE;
+  --gold:#C99B41;
+  --gray-50:#F1F3F4;
+  --ink:#1b2439;
+  --ink-80:#2c354d;
+  --white:#ffffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* This is the magic: centers your content in a nice column */
+.page-wrapper {
+  max-width: 900px;   /* how wide your content column can get */
+  margin: 0 auto;     /* centers it horizontally */
+  padding: 2rem 1.5rem; /* some breathing room on sides/top/bottom */
+}
+
+/* Optional: center the headings at the top */
+.page-wrapper h1,
+.page-wrapper h2 {
+  text-align: center;
+}
+
+
+/* Base layout & typography */
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:"Lora",serif;
+  background:var(--blue-900);
+  color:var(--ink);
+  line-height:1.6;
+}
+
+.container{max-width:1100px;margin:0 auto;padding:0 20px;}
+.section{padding:72px 0;}
+.center{text-align:center;}
+.mt-12{margin-top:12px;}
+.split{display:grid;gap:24px;}
+@media(min-width:960px){.split{grid-template-columns:1.1fr .9fr;align-items:center;}}
+
+h1,h2,h3{font-family:"Bodoni Moda",serif;line-height:1.15;}
+h1{font-size:clamp(40px,5vw,56px);}
+h2{font-size:clamp(28px,3.5vw,36px);}
+h3{font-size:clamp(20px,2.5vw,24px);}
+.lead{font-size:1.125rem;}
+.muted{color:#556085;}
+.accent-line{width:84px;height:3px;background:var(--gold);margin:14px 0 24px;border-radius:2px;}
+
+/* Buttons */
+.btn{
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:700;
+  transition:transform .15s ease,filter .15s ease;
+}
+.btn:hover{transform:translateY(-1px);filter:brightness(.98);}
+.btn-gold{background:var(--gold);color:var(--ink);}
+.btn-ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.8);}
+.btn-ghost:hover{background:rgba(255,255,255,.08);}
+
+/* Dark text adjustments */
+.on-dark{color:#e9efff;}
+.on-dark h1,.on-dark h2,.on-dark h3,.on-dark .lead{color:#f3f6ff;}
+.on-dark .muted{color:#cdd6ff;}
+
+/* Hero */
+.hero{border-bottom:1px solid rgba(255,255,255,.12);padding-top:64px;padding-bottom:48px;}
+
+/* Footer */
+.footer{background:var(--blue-900);border-top:1px solid rgba(255,255,255,.12);}
+.footer .wrap{display:grid;gap:22px;}
+@media(min-width:840px){.footer .wrap{grid-template-columns:1.2fr .8fr;align-items:center;}}
+.footer a{color:#dfe6ff;text-decoration:none;}
+.footer a:hover{color:#fff;}
+.rule{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);margin:18px 0;}
+.small{font-size:.9rem;}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;}
+
+/* CTA strip */
+.cta-strip{
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,0));
+  border-top:1px solid rgba(255,255,255,.1);
+}
+
+/* About page */
+.about-hero-img{
+  width:100%;
+  border-radius:14px;
+  box-shadow:0 12px 24px rgba(0,0,0,.25);
+  border:2px solid rgba(255,255,255,.1);
+}
+.about-hero h1,.about-hero .lead{color:#f3f6ff;}
+.about-highlight{
+  background:linear-gradient(180deg,#F7F9FC 0%,#F1F3F4 100%);
+  border-top:1px solid rgba(0,0,0,.05);
+  border-bottom:1px solid rgba(0,0,0,.06);
+}
+.about-highlight .about-img{
+  width:100%;
+  border-radius:16px;
+  box-shadow:0 12px 24px rgba(27,36,57,.12);
+  border:1px solid rgba(27,36,57,.1);
+}
+.about-highlight h2{color:var(--ink);}
+.about-highlight .muted{color:var(--ink-80);}
+.check{list-style:none;margin:0;padding:0;}
+.check li{position:relative;padding-left:26px;margin:8px 0;color:var(--ink-80);}
+.check li::before{content:"✓";position:absolute;left:0;top:0;color:var(--gold);font-weight:700;}
+/* --- Card look for "My Story" --- */
+.story-card{
+  background: linear-gradient(180deg, #FFFFFF 0%, #F1F3F4 100%);
+  border: 1px solid rgba(27,36,57,.10);
+  border-left: 6px solid var(--gold);
+  border-radius: 16px;
+  padding: clamp(22px, 4vw, 36px);
+  box-shadow: 0 12px 28px rgba(27,36,57,.12);
+}
+
+.story-card h2 { color: var(--ink); }
+.story-card p  { color: var(--ink-80); }
+
+/* optional subtle pattern edge (remove if you don’t want it) */
+.story-card::after{
+  content:"";
+  position:absolute; inset:auto 0 -1px 0;
+  height:1px;
+  background: linear-gradient(90deg, transparent, rgba(27,36,57,.12), transparent);
+}
+
+/* --- Lighter text on dark for "Beyond the Numbers" --- */
+.on-dark .light-text,
+.on-dark h2.light-text {
+  color: #f3f6ff;   /* headings/body on dark */
+}
+.on-dark .light-muted{
+  color: #dfe6ff;   /* secondary text on dark */
+}
+
+/* --- Extra spacing helper if two sections are back-to-back --- */
+.mt-32{ margin-top:32px; }
+
+/* Center the gold line under the hero heading on the About page */
+.about-hero .accent-line {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Center the hero heading + gold line on the About page */
+.about-hero {
+  text-align: center;
+}
+
+.about-hero-text {
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+/* Make the gold accent line sit centered under the heading */
+.about-hero .accent-line {
+  margin-left: auto;
+  margin-right: auto;
+}
