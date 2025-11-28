@@ -271,5 +271,5 @@ h3 {
 
 /* Remove extra space above footer on the last section only */
 .section:last-of-type {
-  padding-bottom:0;
+  padding-bottom:80
 }
