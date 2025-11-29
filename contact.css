@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@500;700&family=Cormorant+Garamond:wght@400;600&family=Lora:wght@400;600&display=swap");
+html, body {
+  min-height: 100%;
+  height: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch; /* gives smooth, natural scrolling on iOS */
+}
 
 :root{
   --blue-900:#323C54;
