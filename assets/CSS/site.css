@@ -1,0 +1,564 @@
+/* =========================
+   GLOBAL FONTS & BRAND
+   ========================= */
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@500;700&family=Cormorant+Garamond:wght@400;600&family=Lora:wght@400;600&display=swap");
+
+:root{
+  --blue-900:#323C54;
+  --blue-300:#8190BE;
+  --gold:#C99B41;
+  --gray-50:#F1F3F4;
+  --ink:#1b2439;
+  --ink-80:#2c354d;
+  --white:#ffffff;
+}
+
+/* =========================
+   RESET & BASE
+   ========================= */
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html, body {
+  min-height: 100%;
+  height: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+body{
+  font-family:"Lora",serif;
+  background:var(--blue-900);
+  color:var(--ink);
+  line-height:1.6;
+}
+
+/* =========================
+   GLOBAL LAYOUT HELPERS
+   ========================= */
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 20px;
+}
+
+.section{
+  padding:72px 0;
+}
+
+.center{text-align:center;}
+.mt-12{margin-top:12px;}
+.mt-32{margin-top:32px;}
+
+.split{
+  display:grid;
+  gap:24px;
+}
+@media(min-width:960px){
+  .split{
+    grid-template-columns:1.1fr .9fr;
+    align-items:center;
+  }
+}
+
+/* Optional column wrapper for long-form pages */
+.page-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+.page-wrapper h1,
+.page-wrapper h2 {
+  text-align: center;
+}
+
+/* =========================
+   TYPOGRAPHY
+   ========================= */
+h1,h2,h3{
+  font-family:"Bodoni Moda",serif;
+  line-height:1.15;
+}
+h1{
+  font-size:clamp(40px,5vw,56px);
+}
+h2{
+  font-size:clamp(28px,3.5vw,36px);
+}
+h3{
+  font-size:clamp(20px,2.5vw,24px);
+}
+
+.lead{
+  font-size:1.125rem;
+}
+
+.muted{
+  color:#556085;
+}
+
+.accent-line{
+  width:84px;
+  height:3px;
+  background:var(--gold);
+  margin:14px 0 24px;
+  border-radius:2px;
+}
+
+/* =========================
+   BUTTONS
+   ========================= */
+.btn{
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:700;
+  transition:transform .15s ease,
+             filter .15s ease,
+             box-shadow .15s ease;
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+}
+.btn:hover{
+  transform:translateY(-1px);
+  filter:brightness(.98);
+}
+.btn-gold{
+  background:var(--gold);
+  color:var(--ink);
+}
+.btn-ghost{
+  background:transparent;
+  color:var(--white);
+  border:2px solid rgba(255,255,255,.8);
+}
+.btn-ghost:hover{
+  background:rgba(255,255,255,.08);
+}
+.btn-ghost-dark{
+  background:transparent;
+  color:var(--ink);
+  border:2px solid rgba(27,36,57,.25);
+}
+.btn-ghost-dark:hover{
+  background:rgba(27,36,57,.06);
+}
+
+/* Common button row */
+.btn-row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:flex-start;
+  margin-top:12px;
+}
+
+/* =========================
+   DARK SECTION HELPERS
+   ========================= */
+.on-dark{
+  color:#e9efff;
+}
+.on-dark h1,
+.on-dark h2,
+.on-dark h3,
+.on-dark .lead{
+  color:#f3f6ff;
+}
+.on-dark .muted{
+  color:#cdd6ff;
+}
+.on-dark .accent-line{
+  background:var(--gold);
+}
+
+/* extra helper for about page */
+.on-dark .light-text,
+.on-dark h2.light-text {
+  color:#f3f6ff;
+}
+.on-dark .light-muted{
+  color:#dfe6ff;
+}
+
+/* =========================
+   HERO (USED ON MULTIPLE PAGES)
+   ========================= */
+.hero{
+  border-bottom:1px solid rgba(255,255,255,.12);
+  padding-top:64px;
+  padding-bottom:48px;
+}
+
+/* Home hero extra layout */
+.hero .cta-row{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:18px;
+}
+
+/* =========================
+   HOME PAGE – KPIs & CARDS
+   ========================= */
+.kpis{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:12px;
+  margin-top:30px;
+}
+
+.kpi{
+  display:block;
+  text-decoration:none;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:8px;
+  padding:16px;
+  text-align:center;
+  color:#e8edff;
+  transition:transform .15s ease,
+             background .15s ease,
+             border-color .15s ease;
+  cursor:pointer;
+}
+.kpi strong{
+  display:block;
+  font-size:22px;
+  color:#fff;
+}
+.kpi:hover{
+  transform:translateY(-1px);
+  background:rgba(255,255,255,.12);
+  border-color:rgba(255,255,255,.25);
+}
+
+.card{
+  background:var(--gray-50);
+  border-radius:10px;
+  padding:24px;
+  box-shadow:0 6px 20px rgba(0,0,0,.08);
+}
+
+/* Tick list */
+.check{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.check li{
+  position:relative;
+  padding-left:26px;
+  margin:8px 0;
+  color:var(--ink-80);
+}
+.check li::before{
+  content:"✓";
+  position:absolute;
+  left:0;
+  top:0;
+  color:var(--gold);
+  font-weight:700;
+}
+
+/* Brand inline (home footer top row) */
+.brand-inline{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  justify-content:center;
+}
+.brand-inline img{
+  height:40px;
+  width:auto;
+}
+.brand-inline span{
+  font-family:"Cormorant Garamond",serif;
+  font-weight:600;
+  color:#fff;
+}
+
+/* =========================
+   SERVICES PAGE
+   ========================= */
+.hero-wrap{
+  display:grid;
+  gap:24px;
+}
+@media(min-width:960px){
+  .hero-wrap{
+    grid-template-columns:1.2fr .8fr;
+    align-items:start;
+  }
+}
+.hero .lead{
+  max-width:52ch;
+  margin-bottom:14px;
+}
+.card-dark{
+  border:1px solid rgba(255,255,255,.16);
+  background:linear-gradient(180deg,
+            rgba(255,255,255,.06),
+            rgba(255,255,255,.02));
+  border-radius:14px;
+  padding:20px;
+  box-shadow:0 10px 28px rgba(0,0,0,.25),
+             inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+/* Services wrapper (light backdrop) */
+.services-wrap{
+  background:linear-gradient(180deg,#F7F9FC 0%,#F1F3F4 100%);
+  border-top:1px solid rgba(0,0,0,.05);
+  border-bottom:1px solid rgba(0,0,0,.06);
+}
+
+.service-grid{
+  margin-top:28px;
+  display:grid;
+  gap:22px;
+}
+@media(min-width:900px){
+  .service-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+.service-card{
+  background:var(--white);
+  border:1px solid rgba(27,36,57,.12);
+  border-radius:16px;
+  padding:22px 22px 18px;
+  box-shadow:
+    0 12px 28px rgba(27,36,57,.08),
+    0 1px 0 rgba(255,255,255,.8) inset;
+  transition:transform .18s ease,
+             box-shadow .18s ease,
+             border-color .18s ease;
+}
+.service-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 36px rgba(27,36,57,.12);
+  border-color:rgba(27,36,57,.18);
+}
+.service-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:8px;
+}
+
+/* Optional badges if you need them later */
+.badge{
+  font-family:"Cormorant Garamond",serif;
+  font-weight:600;
+  font-size:.95rem;
+  padding:6px 10px;
+  border-radius:24px;
+  background:#EEF2FF;
+  color:#27304a;
+  border:1px solid rgba(39,48,74,.18);
+}
+.badge.alt{
+  background:#FFF4E3;
+  border-color:rgba(201,155,65,.4);
+}
+
+.card-cta{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+
+/* =========================
+   CONTACT PAGE
+   ========================= */
+.contact-section{
+  background:linear-gradient(180deg,#F7F9FC 0%,#F1F3F4 100%);
+  color:var(--ink);
+}
+.contact-section h2,
+.contact-section h3{
+  color:var(--ink);
+}
+.contact-section .muted{
+  color:var(--ink-80);
+}
+
+.contact-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.contact-list li{
+  margin:10px 0;
+  font-size:1rem;
+}
+.contact-list a{
+  color:var(--blue-900);
+  text-decoration:none;
+  font-weight:600;
+}
+.contact-list a:hover{
+  color:var(--gold);
+}
+
+/* Contact form */
+.contact-form{
+  background:var(--white);
+  border:1px solid rgba(0,0,0,.1);
+  border-radius:16px;
+  padding:32px 28px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+.contact-form label{
+  display:block;
+  font-weight:600;
+  font-family:"Cormorant Garamond",serif;
+  margin-top:12px;
+  color:var(--ink);
+}
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  margin-top:6px;
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid rgba(0,0,0,.2);
+  font-family:"Lora",serif;
+  font-size:1rem;
+  color:var(--ink);
+  background:var(--gray-50);
+}
+.contact-form button{
+  margin-top:16px;
+  border:none;
+  cursor:pointer;
+}
+.status{
+  font-size:.9rem;
+  margin-top:10px;
+  color:var(--blue-300);
+}
+
+/* =========================
+   ABOUT PAGE
+   ========================= */
+.about-hero-img{
+  width:100%;
+  border-radius:14px;
+  box-shadow:0 12px 24px rgba(0,0,0,.25);
+  border:2px solid rgba(255,255,255,.1);
+}
+.about-hero h1,
+.about-hero .lead{
+  color:#f3f6ff;
+}
+.about-highlight{
+  background:linear-gradient(180deg,#F7F9FC 0%,#F1F3F4 100%);
+  border-top:1px solid rgba(0,0,0,.05);
+  border-bottom:1px solid rgba(0,0,0,.06);
+}
+.about-highlight .about-img{
+  width:100%;
+  border-radius:16px;
+  box-shadow:0 12px 24px rgba(27,36,57,.12);
+  border:1px solid rgba(27,36,57,.1);
+}
+.about-highlight h2{
+  color:var(--ink);
+}
+.about-highlight .muted{
+  color:var(--ink-80);
+}
+
+/* Card look for "My Story" */
+.story-card{
+  background:linear-gradient(180deg,#FFFFFF 0%,#F1F3F4 100%);
+  border:1px solid rgba(27,36,57,.10);
+  border-left:6px solid var(--gold);
+  border-radius:16px;
+  padding:clamp(22px,4vw,36px);
+  box-shadow:0 12px 28px rgba(27,36,57,.12);
+}
+.story-card h2{
+  color:var(--ink);
+}
+.story-card p{
+  color:var(--ink-80);
+}
+.story-card::after{
+  content:"";
+  position:absolute;
+  inset:auto 0 -1px 0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(27,36,57,.12),transparent);
+}
+
+/* Center the hero heading + line on the About page */
+.about-hero{
+  text-align:center;
+}
+.about-hero-text{
+  max-width:36rem;
+  margin:0 auto;
+}
+.about-hero .accent-line{
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* =========================
+   CTA STRIP (shared)
+   ========================= */
+.cta-strip{
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,0));
+  border-top:1px solid rgba(255,255,255,.1);
+}
+
+/* =========================
+   FOOTER (UNIFIED)
+   ========================= */
+.footer{
+  background:var(--blue-900);
+  border-top:1px solid rgba(255,255,255,.12);
+  padding:64px 0 140px;
+  color:#e9efff;
+}
+.footer .wrap{
+  display:grid;
+  gap:22px;
+}
+@media(min-width:840px){
+  .footer .wrap{
+    grid-template-columns:1.2fr .8fr;
+    align-items:center;
+  }
+}
+.footer a{
+  color:#dfe6ff;
+  text-decoration:none;
+}
+.footer a:hover{
+  color:#fff;
+}
+.rule{
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);
+  margin:18px 0;
+}
+.small{
+  font-size:.9rem;
+}
+.footer .links{
+  text-align:left;
+}
+@media(max-width:839px){
+  .footer .links{
+    text-align:center;
+  }
+}
