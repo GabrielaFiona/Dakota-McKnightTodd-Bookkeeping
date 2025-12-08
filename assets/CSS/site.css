@@ -530,15 +530,14 @@ h3{
   color:#e9efff;
 }
 .footer .wrap{
-  display:grid;
-  gap:22px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  gap:24px;
 }
-@media(min-width:840px){
-  .footer .wrap{
-    grid-template-columns:1.2fr .8fr;
-    align-items:center;
-  }
-}
+
 .footer a{
   color:#dfe6ff;
   text-decoration:none;
