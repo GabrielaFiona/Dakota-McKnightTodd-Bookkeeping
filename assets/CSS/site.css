@@ -523,13 +523,17 @@ h3{
 /* =========================
    FOOTER (UNIFIED)
    ========================= */
+/* =========================
+   FOOTER (UNIFIED)
+   ========================= */
 .footer{
   background:var(--blue-900);
   border-top:1px solid rgba(255,255,255,.12);
-  padding:64px 0 140px;
-   padding-bottom: 100px;
+  /* top | left/right | bottom */
+  padding:64px 0 120px;
   color:#e9efff;
 }
+
 .footer .wrap{
   display:flex;
   flex-direction:column;
@@ -539,6 +543,11 @@ h3{
   gap:24px;
 }
 
+/* center the footer CTA buttons */
+.footer .btn-row{
+  justify-content:center;
+}
+
 .footer a{
   color:#dfe6ff;
   text-decoration:none;
@@ -546,19 +555,18 @@ h3{
 .footer a:hover{
   color:#fff;
 }
+
 .rule{
   height:1px;
   background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);
   margin:18px 0;
 }
+
 .small{
   font-size:.9rem;
 }
+
+/* always center footer links */
 .footer .links{
-  text-align:left;
-}
-@media(max-width:839px){
-  .footer .links{
-    text-align:center;
-  }
+  text-align:center;
 }
