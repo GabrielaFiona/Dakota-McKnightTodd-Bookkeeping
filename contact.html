@@ -5,30 +5,46 @@
   <title>Contact – McKnight Todd Bookkeeping</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Global stylesheet -->
   <link rel="stylesheet" href="assets/CSS/site.css" />
 
-  <!-- Global script -->
+  <style>
+    .menu-btn { position: fixed; top: 20px; left: 20px; z-index: 1000; background: none; border: none; cursor: pointer; padding: 10px; }
+    .menu-btn span { display: block; width: 30px; height: 3px; background-color: #d4af37; margin: 6px 0; transition: 0.4s; }
+    .side-nav { height: 100%; width: 0; position: fixed; z-index: 999; top: 0; left: 0; background-color: #323C54; overflow-x: hidden; transition: 0.5s; padding-top: 80px; box-shadow: 2px 0 5px rgba(0,0,0,0.5); }
+    .side-nav a { padding: 15px 30px; text-decoration: none; font-size: 1.2rem; color: #f1f1f1; display: block; transition: 0.3s; font-family: sans-serif; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .side-nav a:hover { color: #d4af37; background-color: rgba(0,0,0,0.2); }
+    .side-nav .close-btn { position: absolute; top: 10px; right: 20px; font-size: 36px; margin-left: 50px; background: none; border: none; color: #fff; cursor: pointer; }
+  </style>
+
   <script src="assets/js/main.js" defer></script>
 </head>
 
 <body>
-  <!-- CONTACT HERO -->
+  <button class="menu-btn" onclick="toggleNav()" aria-label="Open Menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <div id="mySidenav" class="side-nav">
+    <button class="close-btn" onclick="toggleNav()">&times;</button>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
   <section class="hero on-dark center">
   <div class="container">
     <h1>Let’s Connect</h1>
-<div class="accent-line" style="margin:auto;"></div>
+    <div class="accent-line" style="margin:auto;"></div>
     <p class="lead on-dark" style="max-width: 42rem; margin: 0 auto;">
-  Whether you’re ready to get started or just have a few questions, I’d love to hear from you.
-  Let’s simplify your bookkeeping together and give you clarity you can count on.
-</p>
+      Whether you’re ready to get started or just have a few questions, I’d love to hear from you.
+      Let’s simplify your bookkeeping together and give you clarity you can count on.
+    </p>
   </div>
 </section>
 
-<!-- CONTACT INFO & FORM -->
 <section class="section contact-section">
   <div class="container split">
-    <!-- left side: info -->
     <div>
       <h2>Get in Touch</h2>
       <p class="muted">
@@ -42,24 +58,17 @@
       </ul>
     </div>
 
-    <!-- right side: form -->
     <div class="contact-form">
       <h3>Send a Message</h3>
      <form id="contact-form" action="https://formspree.io/f/movbznqo" method="POST">
-  <!-- optional: customize the email subject you receive -->
   <input type="hidden" name="_subject" value="New message from the website — Contact Page">
 
-  <!-- optional: redirect to a thank-you page instead of staying here -->
-  <!-- <input type="hidden" name="_redirect" value="https://YOUR-THANK-YOU-PAGE-URL"> -->
-
-  <!-- spam honeypot (invisible to humans) -->
   <input type="text" name="_gotcha" style="display:none">
 
   <label for="name">Name</label>
   <input type="text" id="name" name="name" placeholder="Your name" required>
 
   <label for="email">Email</label>
-  <!-- IMPORTANT: keep the name="email" so Formspree sets Reply-To correctly -->
   <input type="email" id="email" name="email" placeholder="Your email" required>
 
   <label for="message">Message</label>
@@ -73,7 +82,6 @@
   </div>
 </section>
 
-<!-- CTA STRIP -->
 <section class="section cta-strip on-dark center">
   <div class="container">
     <h2 class="on-dark">Prefer to schedule directly?</h2>
@@ -82,7 +90,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer section on-dark">
   <div class="container wrap">
     <div>
@@ -97,5 +104,17 @@
     </div>
   </div>
 </footer>
+
+<script>
+  function toggleNav() {
+    var nav = document.getElementById("mySidenav");
+    if (nav.style.width === "250px") {
+      nav.style.width = "0";
+    } else {
+      nav.style.width = "250px";
+    }
+  }
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
-</html>
+  </html>
