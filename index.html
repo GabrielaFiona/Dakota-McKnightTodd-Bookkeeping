@@ -5,16 +5,98 @@
   <title>McKnight Todd Bookkeeping</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Global stylesheet -->
   <link rel="stylesheet" href="assets/CSS/site.css" />
 
-  <!-- Global script -->
+  <style>
+    /* Menu Button (Hamburger) */
+    .menu-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+    }
+    .menu-btn span {
+      display: block;
+      width: 30px;
+      height: 3px;
+      background-color: #d4af37; /* Gold accent */
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+    
+    /* Side Panel (Drawer) */
+    .side-nav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      left: 0;
+      background-color: #323C54; /* Brand Dark Blue */
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 80px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+    }
+
+    .side-nav a {
+      padding: 15px 30px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      color: #f1f1f1;
+      display: block;
+      transition: 0.3s;
+      font-family: sans-serif; /* Matches site font stack */
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .side-nav a:hover {
+      color: #d4af37; /* Gold hover */
+      background-color: rgba(0,0,0,0.2);
+    }
+
+    /* Close Button inside Drawer */
+    .side-nav .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 36px;
+      margin-left: 50px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+    }
+    
+    /* Animation classes */
+    .menu-open {
+      width: 250px;
+    }
+  </style>
+
   <script src="assets/js/main.js" defer></script>
 </head>
 
 <body>
 
-  <!-- HERO -->
+  <button class="menu-btn" onclick="toggleNav()" aria-label="Open Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div id="mySidenav" class="side-nav">
+    <button class="close-btn" onclick="toggleNav()">&times;</button>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
   <section class="hero on-dark">
     <div class="container split">
       <div>
@@ -34,14 +116,9 @@
           </a>
 
           <a class="btn btn-ghost"
-             href="https://www.mcknighttoddbookkeeping.com/services"
-             target="_blank"
-             rel="noopener">
-            See Services
+             href="services.html"> See Services
           </a>
         </div>
-
-        <!-- KPI tiles were here originally – now moved down above the services preview card -->
       </div>
 
       <div>
@@ -51,11 +128,9 @@
             alt="Dakota, owner and bookkeeper"
             style="width:100%;border-radius:8px;"
           />
-          <p
-  style="margin-top:10px;color:#323C54;"
->
-  Owner, Dakota McKnightTodd
-</p>
+          <p style="margin-top:10px;color:#323C54;">
+            Owner, Dakota McKnightTodd
+          </p>
 
           <ul class="check" style="margin-top:10px;">
             <li>QuickBooks® setup, migration & cleanup</li>
@@ -68,43 +143,23 @@
     </div>
   </section>
 
-  <!-- (REMOVED) Service-teaser section with "See which service fits what you need." -->
-
-  <!-- SERVICES PREVIEW -->
   <section class="section">
     <div class="container">
 
-      <!-- KPI tiles MOVED here to sit above the "Make bookkeeping..." card -->
       <div class="kpis">
-        <a
-          class="kpi"
-          href="https://gabrielafiona.github.io/Dakota-McKnightTodd-Bookkeeping/services#monthly-support"
-          aria-label="QuickBooks setup and cleanup services"
-        >
+        <a class="kpi" href="services.html#monthly-support" aria-label="QuickBooks setup and cleanup services">
           <strong>Monthly</strong>Bookkeeping Support
         </a>
 
-        <a
-          class="kpi"
-          href="https://gabrielafiona.github.io/Dakota-McKnightTodd-Bookkeeping/services#payroll-vendor"
-          aria-label="Payroll and vendor management services"
-        >
+        <a class="kpi" href="services.html#payroll-vendor" aria-label="Payroll and vendor management services">
           <strong>Payroll</strong>Hands-off management
         </a>
 
-        <a
-          class="kpi"
-          href="https://gabrielafiona.github.io/Dakota-McKnightTodd-Bookkeeping/services#cleanup-reconciliation"
-          aria-label="Monthly bookkeeping support services"
-        >
+        <a class="kpi" href="services.html#cleanup-reconciliation" aria-label="Monthly bookkeeping support services">
           <strong>Cleanup</strong>Reconciliation Behind on books
         </a>
 
-        <a
-          class="kpi"
-          href="https://gabrielafiona.github.io/Dakota-McKnightTodd-Bookkeeping/services#forecasting-cpa-prep"
-          aria-label="Tax-ready bookkeeping and CPA prep services"
-        >
+        <a class="kpi" href="services.html#forecasting-cpa-prep" aria-label="Tax-ready bookkeeping and CPA prep services">
           <strong>Tax-ready</strong>Stress-free filing
         </a>
       </div>
@@ -128,13 +183,11 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer section">
     <div class="container wrap">
       <div>
         <div class="brand-inline">
-          <!-- Add logo here if desired -->
-        </div>
+          </div>
       </div>
 
       <div>
@@ -151,5 +204,18 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    function toggleNav() {
+      var nav = document.getElementById("mySidenav");
+      if (nav.style.width === "250px") {
+        nav.style.width = "0";
+      } else {
+        nav.style.width = "250px";
+      }
+    }
+    // Auto-update year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
