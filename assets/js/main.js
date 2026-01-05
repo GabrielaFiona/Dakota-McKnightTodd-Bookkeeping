@@ -10,41 +10,60 @@ document.addEventListener("DOMContentLoaded", () => {
   setFooterYear();
 
   /* =========================
-     2) MENU TOGGLE & ANIMATION
+     2) SMART HEADER LOGIC (Hide Down / Show Up)
+     ========================= */
+  const header = document.querySelector(".smart-header");
+  let lastScroll = 0;
+
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Don't hide if at the very top or if menu is OPEN (width=250px)
+    const isMenuOpen = document.getElementById("mySidenav").style.width === "250px";
+    
+    if (currentScroll <= 0 || isMenuOpen) {
+      header.classList.remove("scroll-down");
+      lastScroll = currentScroll;
+      return;
+    }
+
+    if (currentScroll > lastScroll && currentScroll > 70) {
+      // Scrolling DOWN -> Hide Header
+      header.classList.add("scroll-down");
+    } else {
+      // Scrolling UP -> Show Header
+      header.classList.remove("scroll-down");
+    }
+    lastScroll = currentScroll;
+  });
+
+  /* =========================
+     3) MENU TOGGLE ("X" ANIMATION)
      ========================= */
   const nav = document.getElementById("mySidenav");
   const menuBtn = document.querySelector(".menu-btn");
 
-  // Global toggle function
   window.toggleNav = function() {
-    // Check if open by width or class
-    const isOpen = nav.style.width === "220px";
+    const isOpen = nav.style.width === "250px";
 
     if (isOpen) {
-      // Close it
       nav.style.width = "0";
       menuBtn.classList.remove("is-active");
     } else {
-      // Open it
-      nav.style.width = "220px"; // New cleaner width
+      nav.style.width = "250px";
       menuBtn.classList.add("is-active");
+      // Ensure header is visible when we open the menu
+      header.classList.remove("scroll-down");
     }
   };
 
-  // Close menu when scrolling
-  window.addEventListener("scroll", () => {
-    if (nav.style.width === "220px") {
-      nav.style.width = "0";
-      menuBtn.classList.remove("is-active");
-    }
-  });
-
-  // Close menu if clicking outside
+  // Close when clicking outside
   document.addEventListener("click", (e) => {
     if (
-      nav.style.width === "220px" && 
-      !nav.contains(e.target) && 
-      !menuBtn.contains(e.target)
+      nav.style.width === "250px" &&
+      !nav.contains(e.target) &&
+      !menuBtn.contains(e.target) &&
+      !header.contains(e.target)
     ) {
       nav.style.width = "0";
       menuBtn.classList.remove("is-active");
@@ -52,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* =========================
-     3) SMOOTH SCROLL
+     4) SMOOTH SCROLL
      ========================= */
   const scroller = document.querySelector(".page-wrapper") || window;
   document.querySelectorAll("[data-scroll-to]").forEach((btn) => {
@@ -73,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* =========================
-     4) CONTACT FORM HANDLER
+     5) CONTACT FORM HANDLER
      ========================= */
   const form = document.getElementById("contact-form");
   const statusEl = document.getElementById("form-status");
