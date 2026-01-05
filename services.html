@@ -4,154 +4,132 @@
   <meta charset="UTF-8" />
   <title>Bookkeeping Services | McKnight Todd Bookkeeping</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <link rel="stylesheet" href="assets/CSS/site.css" />
-
-  <style>
-    .menu-btn { position: fixed; top: 20px; left: 20px; z-index: 1000; background: none; border: none; cursor: pointer; padding: 10px; }
-    .menu-btn span { display: block; width: 30px; height: 3px; background-color: #d4af37; margin: 6px 0; transition: 0.4s; }
-    .side-nav { height: 100%; width: 0; position: fixed; z-index: 999; top: 0; left: 0; background-color: #323C54; overflow-x: hidden; transition: 0.5s; padding-top: 80px; box-shadow: 2px 0 5px rgba(0,0,0,0.5); }
-    .side-nav a { padding: 15px 30px; text-decoration: none; font-size: 1.2rem; color: #f1f1f1; display: block; transition: 0.3s; font-family: sans-serif; border-bottom: 1px solid rgba(255,255,255,0.1); }
-    .side-nav a:hover { color: #d4af37; background-color: rgba(0,0,0,0.2); }
-    .side-nav .close-btn { position: absolute; top: 10px; right: 20px; font-size: 36px; margin-left: 50px; background: none; border: none; color: #fff; cursor: pointer; }
-  </style>
-
   <script src="assets/js/main.js" defer></script>
 </head>
 
 <body>
 
-<button class="menu-btn" onclick="toggleNav()" aria-label="Open Menu">
-  <span></span><span></span><span></span>
-</button>
+  <header class="site-header">
+    <a href="index.html" class="brand-logo">McKnight Todd Bookkeeping</a>
+    <button class="menu-btn" onclick="toggleNav()" aria-label="Open Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
 
-<div id="mySidenav" class="side-nav">
-  <button class="close-btn" onclick="toggleNav()">&times;</button>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="contact.html">Contact</a>
-</div>
-
-<section class="hero on-dark">
-  <div class="container hero-wrap">
-    <div class="hero-copy">
-      <h1>Services That Free You to Focus on Your Business</h1>
-      <div class="accent-line"></div>
-      <p class="lead">
-        I handle the books, the payroll, and the year-end prep so you can grow your business instead of getting buried in paper.
-      </p>
-      <a class="btn btn-gold" href="https://calendly.com/mcknighttoddbookkeeping" target="_blank" rel="noopener">Book a Consultation</a>
-    </div>
-    <div class="hero-side card-dark">
-      <h3 class="on-dark">Why Work With Me?</h3>
-      <p class="muted on-dark">
-        With 7 years of bookkeeping experience, I understand the pressures of running a small business. I give you clarity, accuracy, and peace of mind, so your books are no longer a stress, they’re an asset.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="section services-wrap">
-  <div class="container center">
-    <h2>What I Can Take Off Your Plate</h2>
-    <p class="muted">Choose the level of support you need now & scale up as you grow.</p>
+  <div id="mySidenav" class="side-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://calendly.com/mcknighttoddbookkeeping" target="_blank" class="nav-book-btn">Book Consultation</a>
   </div>
 
-  <div class="container service-grid">
-    <article class="service-card" id="monthly-support">
-      <header class="service-head">
-        <h3>Monthly Bookkeeping Support</h3>
-      </header>
-      <p class="muted">
-        Reliable monthly bookkeeping, categorized transactions, reconciliations, and simple, actionable reports.
-      </p>
-      <ul class="check">
-        <li><strong>Essentials</strong> $250–$400/mo — 1–2 accounts reconciled, monthly reports, quarterly check-in</li>
-        <li><strong>Standard</strong> $450–$700/mo — Everything in Essentials, up to 5 accounts, report reviews, cash-flow snapshot, light A/R & A/P</li>
-        <li><strong>Full Service</strong> $800–$1,200+/mo — Everything in Standard, full payroll, vendor bill pay & invoicing, forecasting & CPA prep, priority response</li>
-      </ul>
-    </article>
-
-    <article class="service-card" id="cleanup-reconciliation">
-      <header class="service-head">
-        <h3>Cleanup & Reconciliation</h3>
-      </header>
-      <p class="muted">
-        Behind on books? I’ll clean up your transactions and reconcile accounts fast, so you’re tax-ready and confident.
-      </p>
-      <ul class="check">
-        <li><strong>Mini Clean-Up</strong> (1–3 months): $100–$200</li>
-        <li><strong>Standard Clean-Up</strong> (4–6 months): $750–$1,200</li>
-        <li><strong>Full Year</strong> (7–12 months): $1,200–$2,000+</li>
-        <li><strong>Multi-Year CPA Rescue</strong>: $2,500+</li>
-      </ul>
-    </article>
-
-    <article class="service-card" id="payroll-vendor">
-      <header class="service-head">
-        <h3>Payroll & Vendor/Invoice Management</h3>
-      </header>
-      <p class="muted">
-        Pay your team and your vendors on time, seamlessly integrated into your bookkeeping.
-      </p>
-      <ul class="check">
-        <li>Employee onboarding & pay runs</li>
-        <li>Vendor bill/invoice tracking & payment coordination</li>
-        <li>Year-end W-2/1099 coordination with your CPA</li>
-      </ul>
-    </article>
-
-    <article class="service-card" id="forecasting-cpa-prep">
-      <header class="service-head">
-        <h3>Forecasting & Tax-Ready CPA Prep</h3>
-      </header>
-      <p class="muted">
-        Turn your numbers into decisions. Stay ahead on cash-flow and arrive at tax season with zero panic.
-      </p>
-      <ul class="check">
-        <li>Business forecasting & cash-flow planning</li>
-        <li>Quarterly review calls & action items</li>
-        <li>Organized files ready for your CPA</li>
-      </ul>
-    </article>
-  </div>
-</section>
-
-<footer class="footer section on-dark">
-  <div class="container wrap">
-    <div>
-      <h3 class="on-dark">Let me take bookkeeping off your plate.</h3>
-      <p class="muted on-dark">I work with small business owners across the U.S. to clean up books, track income & expenses, manage payroll, and keep you ready for tax season.</p>
-      <div class="btn-row">
+  <section class="hero on-dark">
+    <div class="container hero-wrap">
+      <div class="hero-copy">
+        <h1>Services That Free You to Focus on Your Business</h1>
+        <div class="accent-line"></div>
+        <p class="lead">
+          I handle the books, the payroll, and the year-end prep so you can grow your business instead of getting buried in paper.
+        </p>
         <a class="btn btn-gold" href="https://calendly.com/mcknighttoddbookkeeping" target="_blank" rel="noopener">Book a Consultation</a>
-        <a class="btn btn-ghost" href="mailto:dakota@mcknighttoddbookkeeping.com">Email Me</a>
+      </div>
+      <div class="hero-side card-dark">
+        <h3 class="on-dark">Why Work With Me?</h3>
+        <p class="muted on-dark">
+          With 7 years of bookkeeping experience, I understand the pressures of running a small business. I give you clarity, accuracy, and peace of mind, so your books are no longer a stress, they’re an asset.
+        </p>
       </div>
     </div>
-    <div>
-      <div class="rule"></div>
-      <div class="links">
-        <a href="https://www.facebook.com/profile.php?id=61576265664786" target="_blank" rel="noopener">Facebook</a> •
-        <a href="https://www.yelp.com/biz/mcknight-todd-bookkeeping-toledo" target="_blank" rel="noopener">Yelp</a> •
-        <a href="tel:+15412722202">(541) 272-2202</a> •
-        <a href="mailto:dakota@mcknighttoddbookkeeping.com">dakota@mcknighttoddbookkeeping.com</a>
-      </div>
-      <p class="small" style="margin-top:12px;">© <span id="year"></span> McKnight Todd Bookkeeping LLC. All rights reserved.</p>
+  </section>
+
+  <section class="section services-wrap">
+    <div class="container center">
+      <h2>What I Can Take Off Your Plate</h2>
+      <p class="muted">Choose the level of support you need now & scale up as you grow.</p>
     </div>
-  </div>
-</footer>
 
-<script>
-  function toggleNav() {
-    var nav = document.getElementById("mySidenav");
-    if (nav.style.width === "250px") {
-      nav.style.width = "0";
-    } else {
-      nav.style.width = "250px";
-    }
-  }
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+    <div class="container service-grid">
+      <article class="service-card" id="monthly-support">
+        <header class="service-head">
+          <h3>Monthly Bookkeeping Support</h3>
+        </header>
+        <p class="muted">
+          Reliable monthly bookkeeping, categorized transactions, reconciliations, and simple, actionable reports.
+        </p>
+        <ul class="check">
+          <li><strong>Essentials</strong> $250–$400/mo — 1–2 accounts reconciled, monthly reports, quarterly check-in</li>
+          <li><strong>Standard</strong> $450–$700/mo — Everything in Essentials, up to 5 accounts, report reviews, cash-flow snapshot, light A/R & A/P</li>
+          <li><strong>Full Service</strong> $800–$1,200+/mo — Everything in Standard, full payroll, vendor bill pay & invoicing, forecasting & CPA prep, priority response</li>
+        </ul>
+      </article>
 
+      <article class="service-card" id="cleanup-reconciliation">
+        <header class="service-head">
+          <h3>Cleanup & Reconciliation</h3>
+        </header>
+        <p class="muted">
+          Behind on books? I’ll clean up your transactions and reconcile accounts fast, so you’re tax-ready and confident.
+        </p>
+        <ul class="check">
+          <li><strong>Mini Clean-Up</strong> (1–3 months): $100–$200</li>
+          <li><strong>Standard Clean-Up</strong> (4–6 months): $750–$1,200</li>
+          <li><strong>Full Year</strong> (7–12 months): $1,200–$2,000+</li>
+          <li><strong>Multi-Year CPA Rescue</strong>: $2,500+</li>
+        </ul>
+      </article>
+
+      <article class="service-card" id="payroll-vendor">
+        <header class="service-head">
+          <h3>Payroll & Vendor/Invoice Management</h3>
+        </header>
+        <p class="muted">
+          Pay your team and your vendors on time, seamlessly integrated into your bookkeeping.
+        </p>
+        <ul class="check">
+          <li>Employee onboarding & pay runs</li>
+          <li>Vendor bill/invoice tracking & payment coordination</li>
+          <li>Year-end W-2/1099 coordination with your CPA</li>
+        </ul>
+      </article>
+
+      <article class="service-card" id="forecasting-cpa-prep">
+        <header class="service-head">
+          <h3>Forecasting & Tax-Ready CPA Prep</h3>
+        </header>
+        <p class="muted">
+          Turn your numbers into decisions. Stay ahead on cash-flow and arrive at tax season with zero panic.
+        </p>
+        <ul class="check">
+          <li>Business forecasting & cash-flow planning</li>
+          <li>Quarterly review calls & action items</li>
+          <li>Organized files ready for your CPA</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <footer class="footer section on-dark">
+    <div class="container wrap">
+      <div>
+        <h3 class="on-dark">Let me take bookkeeping off your plate.</h3>
+        <p class="muted on-dark">I work with small business owners across the U.S. to clean up books, track income & expenses, manage payroll, and keep you ready for tax season.</p>
+        <div class="btn-row">
+          <a class="btn btn-gold" href="https://calendly.com/mcknighttoddbookkeeping" target="_blank" rel="noopener">Book a Consultation</a>
+          <a class="btn btn-ghost" href="mailto:dakota@mcknighttoddbookkeeping.com">Email Me</a>
+        </div>
+      </div>
+      <div>
+        <div class="rule"></div>
+        <div class="links">
+          <a href="https://www.facebook.com/profile.php?id=61576265664786" target="_blank" rel="noopener">Facebook</a> •
+          <a href="https://www.yelp.com/biz/mcknight-todd-bookkeeping-toledo" target="_blank" rel="noopener">Yelp</a> •
+          <a href="mailto:dakota@mcknighttoddbookkeeping.com">dakota@mcknighttoddbookkeeping.com</a>
+        </div>
+        <p class="small" style="margin-top:12px;">© <span id="year"></span> McKnight Todd Bookkeeping LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
