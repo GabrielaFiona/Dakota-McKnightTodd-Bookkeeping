@@ -11,24 +11,17 @@
   --ink:#1b2439;
   --ink-80:#2c354d;
   --white:#ffffff;
-  /* NEW VARIABLE FOR HEADER HEIGHT */
-  --header-height: 80px;
 }
 
 /* =========================
    RESET & BASE
    ========================= */
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+*{ box-sizing:border-box; margin:0; padding:0; }
 
 html, body {
   min-height: 100%;
-  height: auto;
   overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }
 
 body{
@@ -36,664 +29,236 @@ body{
   background:var(--blue-900);
   color:var(--ink);
   line-height:1.6;
-  /* PUSH CONTENT DOWN SO HEADER DOESNT COVER IT */
-  padding-top: var(--header-height);
 }
 
 /* =========================
-   GLOBAL LAYOUT HELPERS
+   1. BRAND HEADER (Scrolls Away)
    ========================= */
-.container{
-  max-width:1100px;
-  margin:0 auto;
-  padding:0 20px;
-}
-
-.section{
-  padding:72px 0;
-}
-
-.center{text-align:center;}
-.mt-12{margin-top:12px;}
-.mt-32{margin-top:32px;}
-
-.split{
-  display:grid;
-  gap:24px;
-}
-@media(min-width:960px){
-  .split{
-    grid-template-columns:1.1fr .9fr;
-    align-items:center;
-  }
-}
-
-/* Optional column wrapper for long-form pages */
-.page-wrapper {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem;
-}
-.page-wrapper h1,
-.page-wrapper h2 {
-  text-align: center;
-}
-
-/* =========================
-   TYPOGRAPHY
-   ========================= */
-h1,h2,h3{
-  font-family:"Bodoni Moda",serif;
-  line-height:1.15;
-}
-h1{
-  font-size:clamp(40px,5vw,56px);
-}
-h2{
-  font-size:clamp(28px,3.5vw,36px);
-}
-h3{
-  font-size:clamp(20px,2.5vw,24px);
-}
-
-.lead{
-  font-size:1.125rem;
-}
-
-.muted{
-  color:#556085;
-}
-
-.accent-line{
-  width:84px;
-  height:3px;
-  background:var(--gold);
-  margin:14px 0 24px;
-  border-radius:2px;
-  margin-left:auto;
-  margin-right:auto;
-}
-
-/* =========================
-   BUTTONS
-   ========================= */
-.btn{
-  display:inline-block;
-  padding:12px 18px;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:700;
-  transition:transform .15s ease,
-             filter .15s ease,
-             box-shadow .15s ease;
-  box-shadow:0 6px 18px rgba(0,0,0,.08);
-}
-.btn:hover{
-  transform:translateY(-1px);
-  filter:brightness(.98);
-}
-.btn-gold{
-  background:var(--gold);
-  color:var(--ink);
-}
-.btn-ghost{
-  background:transparent;
-  color:var(--white);
-  border:2px solid rgba(255,255,255,.8);
-}
-.btn-ghost:hover{
-  background:rgba(255,255,255,.08);
-}
-.btn-ghost-dark{
-  background:transparent;
-  color:var(--ink);
-  border:2px solid rgba(27,36,57,.25);
-}
-.btn-ghost-dark:hover{
-  background:rgba(27,36,57,.06);
-}
-
-/* Common button row */
-.btn-row{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  justify-content:flex-start;
-  margin-top:12px;
-}
-
-/* =========================
-   DARK SECTION HELPERS
-   ========================= */
-.on-dark{
-  color:#e9efff;
-}
-.on-dark h1,
-.on-dark h2,
-.on-dark h3,
-.on-dark .lead{
-  color:#f3f6ff;
-}
-.on-dark .muted{
-  color:#cdd6ff;
-}
-.on-dark .accent-line{
-  background:var(--gold);
-}
-
-/* extra helper for about page */
-.on-dark .light-text,
-.on-dark h2.light-text {
-  color:#f3f6ff;
-}
-.on-dark .light-muted{
-  color:#dfe6ff;
-}
-
-/* =========================
-   HERO (USED ON MULTIPLE PAGES)
-   ========================= */
-.hero{
-  border-bottom:1px solid rgba(255,255,255,.12);
-  padding-top:64px;
-  padding-bottom:48px;
-}
-
-/* Home hero extra layout */
-.hero .cta-row{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-  margin-top:18px;
-}
-
-/* =========================
-   HOME PAGE – KPIs & CARDS
-   ========================= */
-.kpis{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-  gap:12px;
-  margin-top:30px;
-}
-
-.kpi{
-  display:block;
-  text-decoration:none;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.15);
-  border-radius:8px;
-  padding:16px;
-  text-align:center;
-  color:#e8edff;
-  transition:transform .15s ease,
-             background .15s ease,
-             border-color .15s ease;
-  cursor:pointer;
-}
-.kpi strong{
-  display:block;
-  font-size:22px;
-  color:#fff;
-}
-.kpi:hover{
-  transform:translateY(-1px);
-  background:rgba(255,255,255,.12);
-  border-color:rgba(255,255,255,.25);
-}
-
-.card{
-  background:var(--gray-50);
-  border-radius:10px;
-  padding:24px;
-  box-shadow:0 6px 20px rgba(0,0,0,.08);
-}
-
-/* Tick list */
-.check{
-  list-style:none;
-  margin:0;
-  padding:0;
-}
-.check li{
-  position:relative;
-  padding-left:26px;
-  margin:8px 0;
-  color:var(--ink-80);
-}
-.check li::before{
-  content:"✓";
-  position:absolute;
-  left:0;
-  top:0;
-  color:var(--gold);
-  font-weight:700;
-}
-
-/* Brand inline (home footer top row) */
-.brand-inline{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  justify-content:center;
-}
-.brand-inline img{
-  height:40px;
-  width:auto;
-}
-.brand-inline span{
-  font-family:"Cormorant Garamond",serif;
-  font-weight:600;
-  color:#fff;
-}
-
-/* =========================
-   SERVICES PAGE
-   ========================= */
-.hero-wrap{
-  display:grid;
-  gap:24px;
-}
-@media(min-width:960px){
-  .hero-wrap{
-    grid-template-columns:1.2fr .8fr;
-    align-items:start;
-  }
-}
-.hero .lead{
-  max-width:52ch;
-  margin-bottom:14px;
-}
-.card-dark{
-  border:1px solid rgba(255,255,255,.16);
-  background:linear-gradient(180deg,
-            rgba(255,255,255,.06),
-            rgba(255,255,255,.02));
-  border-radius:14px;
-  padding:20px;
-  box-shadow:0 10px 28px rgba(0,0,0,.25),
-             inset 0 1px 0 rgba(255,255,255,.05);
-}
-
-/* Services wrapper (light backdrop) */
-.services-wrap{
-  background:linear-gradient(180deg,#F7F9FC 0%,#F1F3F4 100%);
-  border-top:1px solid rgba(0,0,0,.05);
-  border-bottom:1px solid rgba(0,0,0,.06);
-}
-
-.service-grid{
-  margin-top:28px;
-  display:grid;
-  gap:22px;
-}
-@media(min-width:900px){
-  .service-grid{
-    grid-template-columns:1fr 1fr;
-  }
-}
-.service-card{
-  background:var(--white);
-  border:1px solid rgba(27,36,57,.12);
-  border-radius:16px;
-  padding:22px 22px 18px;
-  box-shadow:
-    0 12px 28px rgba(27,36,57,.08),
-    0 1px 0 rgba(255,255,255,.8) inset;
-  transition:transform .18s ease,
-             box-shadow .18s ease,
-             border-color .18s ease;
-}
-.service-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 16px 36px rgba(27,36,57,.12);
-  border-color:rgba(27,36,57,.18);
-}
-.service-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  margin-bottom:8px;
-}
-
-/* Optional badges if you need them later */
-.badge{
-  font-family:"Cormorant Garamond",serif;
-  font-weight:600;
-  font-size:.95rem;
-  padding:6px 10px;
-  border-radius:24px;
-  background:#EEF2FF;
-  color:#27304a;
-  border:1px solid rgba(39,48,74,.18);
-}
-.badge.alt{
-  background:#FFF4E3;
-  border-color:rgba(201,155,65,.4);
-}
-
-.card-cta{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:14px;
-}
-
-/* =========================
-   CONTACT PAGE
-   ========================= */
-.contact-section{
-  background:linear-gradient(180deg,#F7F9FC 0%,#F1F3F4 100%);
-  color:var(--ink);
-}
-.contact-section h2,
-.contact-section h3{
-  color:var(--ink);
-}
-.contact-section .muted{
-  color:var(--ink-80);
-}
-
-.contact-list{
-  list-style:none;
-  margin:0;
-  padding:0;
-}
-.contact-list li{
-  margin:10px 0;
-  font-size:1rem;
-}
-.contact-list a{
-  color:var(--blue-900);
-  text-decoration:none;
-  font-weight:600;
-}
-.contact-list a:hover{
-  color:var(--gold);
-}
-
-/* Contact form */
-.contact-form{
-  background:var(--white);
-  border:1px solid rgba(0,0,0,.1);
-  border-radius:16px;
-  padding:32px 28px;
-  box-shadow:0 10px 25px rgba(0,0,0,.08);
-}
-.contact-form label{
-  display:block;
-  font-weight:600;
-  font-family:"Cormorant Garamond",serif;
-  margin-top:12px;
-  color:var(--ink);
-}
-.contact-form input,
-.contact-form textarea{
-  width:100%;
-  margin-top:6px;
-  padding:10px 12px;
-  border-radius:8px;
-  border:1px solid rgba(0,0,0,.2);
-  font-family:"Lora",serif;
-  font-size:1rem;
-  color:var(--ink);
-  background:var(--gray-50);
-}
-.contact-form button{
-  margin-top:16px;
-  border:none;
-  cursor:pointer;
-}
-.status{
-  font-size:.9rem;
-  margin-top:10px;
-  color:var(--blue-300);
-}
-
-/* =========================
-   ABOUT PAGE
-   ========================= */
-.about-hero-img{
-  width:100%;
-  border-radius:14px;
-  box-shadow:0 12px 24px rgba(0,0,0,.25);
-  border:2px solid rgba(255,255,255,.1);
-}
-.about-hero h1,
-.about-hero .lead{
-  color:#f3f6ff;
-}
-.about-highlight{
-  background:linear-gradient(180deg,#F7F9FC 0%,#F1F3F4 100%);
-  border-top:1px solid rgba(0,0,0,.05);
-  border-bottom:1px solid rgba(0,0,0,.06);
-}
-.about-highlight .about-img{
-  width:100%;
-  border-radius:16px;
-  box-shadow:0 12px 24px rgba(27,36,57,.12);
-  border:1px solid rgba(27,36,57,.1);
-}
-.about-highlight h2{
-  color:var(--ink);
-}
-.about-highlight .muted{
-  color:var(--ink-80);
-}
-
-/* Card look for "My Story" */
-.story-card{
-  background:linear-gradient(180deg,#FFFFFF 0%,#F1F3F4 100%);
-  border:1px solid rgba(27,36,57,.10);
-  border-left:6px solid var(--gold);
-  border-radius:16px;
-  padding:clamp(22px,4vw,36px);
-  box-shadow:0 12px 28px rgba(27,36,57,.12);
-}
-.story-card h2{
-  color:var(--ink);
-}
-.story-card p{
-  color:var(--ink-80);
-}
-.story-card::after{
-  content:"";
-  position:absolute;
-  inset:auto 0 -1px 0;
-  height:1px;
-  background:linear-gradient(90deg,transparent,rgba(27,36,57,.12),transparent);
-}
-
-/* Center the hero heading + line on the About page */
-.about-hero{
-  text-align:center;
-}
-.about-hero-text{
-  max-width:36rem;
-  margin:0 auto;
-}
-.about-hero .accent-line{
-  margin-left:auto;
-  margin-right:auto;
-}
-
-/* =========================
-   CTA STRIP (shared)
-   ========================= */
-.cta-strip{
-  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,0));
-  border-top:1px solid rgba(255,255,255,.1);
-}
-
-/* =========================
-   FOOTER (UNIFIED)
-   ========================= */
-.footer{
-  background:var(--blue-900);
-  border-top:1px solid rgba(255,255,255,.12);
-  /* top | left/right | bottom */
-  padding:64px 0 120px;
-  color:#e9efff;
-}
-
-.footer .wrap{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  gap:24px;
-}
-
-/* center the footer CTA buttons */
-.footer .btn-row{
-  justify-content:center;
-}
-
-.footer a{
-  color:#dfe6ff;
-  text-decoration:none;
-}
-.footer a:hover{
-  color:#fff;
-}
-
-.rule{
-  height:1px;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);
-  margin:18px 0;
-}
-
-.small{
-  font-size:.9rem;
-}
-
-/* always center footer links */
-.footer .links{
-  text-align:center;
-}
-
-
-/* =========================================================
-   NEW UPDATES: STICKY HEADER & REVIEWS
-   (Appended below to avoid breaking original code)
-   ========================================================= */
-
-/* 1. STICKY HEADER CONTAINER 
-   Ensures logo and menu button sit side-by-side */
-.site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: var(--header-height);
+.brand-header-flow {
   background-color: var(--blue-900);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  z-index: 1000;
-  
-  /* THIS IS THE KEY FIX FOR STACKING: */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  
-  padding: 0 20px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  padding: 40px 20px 20px 20px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-.brand-logo {
+.brand-logo-large {
   font-family: "Bodoni Moda", serif;
-  font-size: 1.2rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem); /* Responsive large size */
   color: var(--white);
   text-decoration: none;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+  display: block;
 }
 
-/* 2. MENU BUTTON (Migrated from HTML Styles) */
+/* =========================
+   2. STICKY MENU BUTTON (Stays on scroll)
+   ========================= */
+.sticky-menu-wrapper {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 20px; /* Sticks 20px from top */
+  z-index: 2000; /* Stays above everything */
+  margin-left: 20px; /* Left spacing */
+  width: fit-content;
+  /* Ensure it doesn't block clicks on content below it */
+  height: 0; 
+  overflow: visible;
+}
+
 .menu-btn {
-  /* Removed 'position: fixed' because it is now inside the flex header */
-  background: none;
-  border: none;
+  background: var(--blue-900); /* Background to hide content behind lines */
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%; /* Circle shape */
   cursor: pointer;
-  padding: 10px;
+  padding: 12px;
+  width: 50px;
+  height: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
 }
 
+.menu-btn:hover {
+  border-color: var(--gold);
+  transform: scale(1.05);
+}
+
+/* The 3 Lines */
 .menu-btn span {
   display: block;
-  width: 30px;
-  height: 3px;
+  width: 24px;
+  height: 2px;
   background-color: var(--gold);
-  margin: 5px 0;
-  transition: 0.4s;
+  margin: 2px 0;
+  transition: all 0.4s ease-in-out;
+  transform-origin: center;
 }
 
-/* 3. SIDE NAV (Migrated from HTML Styles) */
+/* =========================
+   3. "X" ANIMATION STATES
+   ========================= */
+/* When class 'is-active' is added via JS */
+.menu-btn.is-active {
+  border-color: var(--gold);
+  background: var(--blue-900);
+}
+
+.menu-btn.is-active span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu-btn.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.is-active span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* =========================
+   4. SIDE NAVIGATION (Cleaner & Smaller)
+   ========================= */
 .side-nav {
   height: 100%;
-  width: 0;
+  width: 0; /* JS toggles this */
   position: fixed;
-  z-index: 999;
-  /* Start BELOW the new sticky header */
-  top: var(--header-height);
+  z-index: 1999; /* Below the button (2000) so button stays clickable */
+  top: 0;
   left: 0;
-  background-color: var(--blue-900);
+  background-color: rgba(50, 60, 84, 0.98); /* Slight opacity */
   overflow-x: hidden;
   transition: 0.4s ease-in-out;
-  padding-top: 30px;
-  border-top: 1px solid rgba(255,255,255,0.05);
-  box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+  padding-top: 100px; /* Space for the button at top */
+  box-shadow: 4px 0 15px rgba(0,0,0,0.4);
+  backdrop-filter: blur(5px);
 }
 
+/* Links inside the nav */
 .side-nav a {
-  padding: 20px 30px;
+  padding: 15px 30px;
   text-decoration: none;
-  font-size: 1.3rem;
-  color: #f1f1f1;
+  font-size: 1.1rem; /* Smaller, neater font */
+  color: #e0e0e0;
   display: block;
-  transition: 0.3s;
-  font-family: "Bodoni Moda", serif;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  transition: 0.2s;
+  font-family: "Lora", serif;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
 }
 
 .side-nav a:hover {
   color: var(--gold);
   background-color: rgba(255,255,255,0.05);
-  padding-left: 40px;
+  padding-left: 35px; /* Subtle movement */
 }
 
-/* Booking button highlight in menu */
 .side-nav a.nav-book-btn {
-  background: rgba(201, 155, 65, 0.15);
+  margin-top: 20px;
+  background: rgba(201, 155, 65, 0.1);
   color: var(--gold);
-  border-left: 4px solid var(--gold);
-}
-.side-nav a.nav-book-btn:hover {
-  background: var(--gold);
-  color: var(--ink);
+  font-weight: 700;
+  border-left: 3px solid var(--gold);
 }
 
-/* 4. REVIEWS SECTION STYLES */
-.review-block {
-  background: var(--white);
-  border: 1px solid rgba(27,36,57,.12);
-  border-radius: 12px;
-  padding: 30px;
-  max-width: 800px;
-  margin: 32px auto;
-  box-shadow: 0 12px 28px rgba(27,36,57,.08);
-  position: relative;
-  text-align: center;
+/* =========================
+   LAYOUT UTILITIES
+   ========================= */
+.container{ max-width:1100px; margin:0 auto; padding:0 20px; }
+.section{ padding:72px 0; }
+.center{ text-align:center; }
+.mt-12{ margin-top:12px; }
+.mt-32{ margin-top:32px; }
+
+.split{ display:grid; gap:24px; }
+@media(min-width:960px){
+  .split{ grid-template-columns:1.1fr .9fr; align-items:center; }
 }
+
+/* =========================
+   TYPOGRAPHY
+   ========================= */
+h1,h2,h3{ font-family:"Bodoni Moda",serif; line-height:1.15; }
+h1{ font-size:clamp(40px,5vw,56px); }
+h2{ font-size:clamp(28px,3.5vw,36px); }
+h3{ font-size:clamp(20px,2.5vw,24px); }
+.lead{ font-size:1.125rem; }
+.muted{ color:#556085; }
+.accent-line{ width:84px; height:3px; background:var(--gold); margin:14px 0 24px; border-radius:2px; margin-left:auto; margin-right:auto; }
+
+/* =========================
+   BUTTONS
+   ========================= */
+.btn{ display:inline-block; padding:12px 18px; border-radius:10px; text-decoration:none; font-weight:700; transition:transform .15s ease, filter .15s ease; box-shadow:0 6px 18px rgba(0,0,0,.08); }
+.btn:hover{ transform:translateY(-1px); filter:brightness(.98); }
+.btn-gold{ background:var(--gold); color:var(--ink); }
+.btn-ghost{ background:transparent; color:var(--white); border:2px solid rgba(255,255,255,.8); }
+.btn-ghost:hover{ background:rgba(255,255,255,.08); }
+.btn-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
+.footer .btn-row { justify-content: center; }
+
+/* =========================
+   DARK SECTIONS
+   ========================= */
+.on-dark{ color:#e9efff; }
+.on-dark h1, .on-dark h2, .on-dark h3, .on-dark .lead{ color:#f3f6ff; }
+.on-dark .muted{ color:#cdd6ff; }
+.on-dark .accent-line{ background:var(--gold); }
+.on-dark .light-text{ color:#f3f6ff; }
+.on-dark .light-muted{ color:#dfe6ff; }
+
+/* =========================
+   HERO & CARDS
+   ========================= */
+.hero{ border-bottom:1px solid rgba(255,255,255,.12); padding-top:64px; padding-bottom:48px; }
+.hero .cta-row{ display:flex; gap:14px; flex-wrap:wrap; margin-top:18px; }
+
+.kpis{ display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:12px; margin-top:30px; }
+.kpi{ display:block; text-decoration:none; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:8px; padding:16px; text-align:center; color:#e8edff; transition:0.2s ease; }
+.kpi:hover{ transform:translateY(-1px); background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.25); }
+.kpi strong{ display:block; font-size:22px; color:#fff; }
+
+.card{ background:var(--gray-50); border-radius:10px; padding:24px; box-shadow:0 6px 20px rgba(0,0,0,.08); }
+.check{ list-style:none; }
+.check li{ position:relative; padding-left:26px; margin:8px 0; color:var(--ink-80); }
+.check li::before{ content:"✓"; position:absolute; left:0; top:0; color:var(--gold); font-weight:700; }
+
+/* =========================
+   SERVICES, ABOUT, CONTACT
+   ========================= */
+.services-wrap{ background:linear-gradient(180deg,#F7F9FC 0%,#F1F3F4 100%); }
+.service-grid{ display:grid; gap:22px; margin-top:28px; }
+@media(min-width:900px){ .service-grid{ grid-template-columns:1fr 1fr; } }
+.service-card{ background:var(--white); border:1px solid rgba(27,36,57,.12); border-radius:16px; padding:22px; box-shadow:0 12px 28px rgba(27,36,57,.08); transition:0.2s ease; }
+.service-card:hover{ transform:translateY(-4px); box-shadow:0 16px 36px rgba(27,36,57,.12); }
+.service-head{ display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+.card-dark{ border:1px solid rgba(255,255,255,.16); background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border-radius:14px; padding:20px; }
+
+.contact-section{ background:linear-gradient(180deg,#F7F9FC 0%,#F1F3F4 100%); color:var(--ink); }
+.contact-list{ list-style:none; }
+.contact-list li{ margin:10px 0; }
+.contact-list a{ color:var(--blue-900); font-weight:600; text-decoration:none; }
+.contact-form{ background:var(--white); border-radius:16px; padding:32px 28px; box-shadow:0 10px 25px rgba(0,0,0,.08); }
+.contact-form label{ display:block; font-weight:600; margin-top:12px; color:var(--ink); }
+.contact-form input, .contact-form textarea{ width:100%; margin-top:6px; padding:10px; border-radius:8px; border:1px solid rgba(0,0,0,.2); font-family:inherit; background:var(--gray-50); }
+.contact-form button{ margin-top:16px; border:none; cursor:pointer; }
+
+.about-hero-img{ width:100%; border-radius:14px; border:2px solid rgba(255,255,255,.1); }
+.about-hero{ text-align:center; }
+.about-hero-text{ max-width:36rem; margin:0 auto; }
+.about-highlight .about-img{ width:100%; border-radius:16px; }
+
+.review-block { background: var(--white); border: 1px solid rgba(27,36,57,.12); border-radius: 12px; padding: 30px; max-width: 800px; margin: 32px auto; box-shadow: 0 12px 28px rgba(27,36,57,.08); position: relative; text-align: center; }
 .review-stars { color: var(--gold); font-size: 1.4rem; margin-bottom: 12px; }
 .review-text { font-size: 1.15rem; font-style: italic; color: var(--ink); line-height: 1.7; }
 .review-author { margin-top: 16px; font-weight: 700; font-family: "Bodoni Moda", serif; color: var(--blue-900); }
-.review-google-btn {
-  display: inline-flex; align-items: center; gap: 8px; margin-top: 20px;
-  font-size: 0.95rem; font-weight: 600; color: var(--blue-300);
-  text-decoration: none; border-bottom: 1px solid transparent;
-}
+.review-google-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; font-size: 0.95rem; font-weight: 600; color: var(--blue-300); text-decoration: none; border-bottom: 1px solid transparent; }
 .review-google-btn:hover { color: var(--blue-900); border-bottom-color: var(--blue-900); }
+
+.footer{ background:var(--blue-900); border-top:1px solid rgba(255,255,255,.12); padding:64px 0 120px; color:#e9efff; text-align: center; }
+.footer a{ color:#dfe6ff; text-decoration:none; margin:0 4px; }
+.footer a:hover{ color:#fff; }
+.rule{ height:1px; background:rgba(255,255,255,.2); margin:18px 0; }
+.small{ font-size:0.9rem; }
