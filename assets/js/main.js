@@ -10,12 +10,11 @@ document.addEventListener("DOMContentLoaded", () => {
   setFooterYear();
 
   /* =========================
-     2) MENU TOGGLE & SCROLL BEHAVIOR (UPDATED)
+     2) MENU TOGGLE & SCROLL BEHAVIOR
      ========================= */
   const nav = document.getElementById("mySidenav");
   const menuBtn = document.querySelector(".menu-btn");
 
-  // Make this function global so the HTML button can call it
   window.toggleNav = function() {
     if (nav.style.width === "250px") {
       nav.style.width = "0";
@@ -24,16 +23,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Close menu when scrolling (User friendly update)
+  // Close menu when scrolling
   window.addEventListener("scroll", () => {
     if (nav.style.width === "250px") {
       nav.style.width = "0";
     }
   });
 
-  // Close menu if clicking outside of it
+  // Close menu if clicking outside
   document.addEventListener("click", (e) => {
-    // If nav is open AND click is NOT on nav AND NOT on the menu button
     if (nav.style.width === "250px" && !nav.contains(e.target) && !menuBtn.contains(e.target)) {
       nav.style.width = "0";
     }
@@ -51,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
       
       const rect = target.getBoundingClientRect();
       const currentScroll = scroller === window ? window.scrollY || window.pageYOffset : scroller.scrollTop;
-      const offset = currentScroll + rect.top - 80; // adjusted for new header
+      const offset = currentScroll + rect.top - 80;
 
       scroller.scrollTo({
         top: offset,
