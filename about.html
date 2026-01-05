@@ -4,37 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | McKnight Todd Bookkeeping</title>
-
   <link rel="stylesheet" href="assets/CSS/site.css" />
-
-  <style>
-    .menu-btn { position: fixed; top: 20px; left: 20px; z-index: 1000; background: none; border: none; cursor: pointer; padding: 10px; }
-    .menu-btn span { display: block; width: 30px; height: 3px; background-color: #d4af37; margin: 6px 0; transition: 0.4s; }
-    .side-nav { height: 100%; width: 0; position: fixed; z-index: 999; top: 0; left: 0; background-color: #323C54; overflow-x: hidden; transition: 0.5s; padding-top: 80px; box-shadow: 2px 0 5px rgba(0,0,0,0.5); }
-    .side-nav a { padding: 15px 30px; text-decoration: none; font-size: 1.2rem; color: #f1f1f1; display: block; transition: 0.3s; font-family: sans-serif; border-bottom: 1px solid rgba(255,255,255,0.1); }
-    .side-nav a:hover { color: #d4af37; background-color: rgba(0,0,0,0.2); }
-    .side-nav .close-btn { position: absolute; top: 10px; right: 20px; font-size: 36px; margin-left: 50px; background: none; border: none; color: #fff; cursor: pointer; }
-  </style>
-
   <script src="assets/js/main.js" defer></script>
 </head>
 
 <body>
 
-<header class="site-header">
-  <a href="index.html" class="brand-logo">McKnight Todd Bookkeeping</a>
-  <button class="menu-btn" onclick="toggleNav()" aria-label="Open Menu">
-    <span></span><span></span><span></span>
-  </button>
-</header>
+  <header class="site-header">
+    <a href="index.html" class="brand-logo">McKnight Todd Bookkeeping</a>
+    <button class="menu-btn" onclick="toggleNav()" aria-label="Open Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
 
-<div id="mySidenav" class="side-nav">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="contact.html">Contact</a>
-  <a href="https://calendly.com/mcknighttoddbookkeeping" target="_blank" class="nav-book-btn">Book Consultation</a>
-</div>
+  <div id="mySidenav" class="side-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://calendly.com/mcknighttoddbookkeeping" target="_blank" class="nav-book-btn">Book Consultation</a>
+  </div>
 
   <section class="hero on-dark">
     <div class="container split about-hero">
@@ -46,7 +35,7 @@
         </p>
       </div>
       <div>
-        <img src="https://raw.githubusercontent.com/GabrielaFiona/Dakota-assets-/807cb8f3f13dd1c400bc1038169838e3bb77ac3a/kotaheadshotmain.jpg" alt="Dakota McKnight-Todd, Bookkeeper" class="about-hero-img">
+        <img src="https://raw.githubusercontent.com/GabrielaFiona/Dakota-assets-/807cb8f3f13dd1c400bc1038169838e3bb77ac3a/kotaheadshotmain.jpg" alt="Dakota McKnight-Todd" class="about-hero-img">
       </div>
     </div>
   </section>
@@ -102,7 +91,7 @@
     </div>
   </section>
 
-  <footer class="footer section on-dark">
+  <footer class="footer section">
     <div class="container wrap">
       <div>
         <h3 class="on-dark">Let me take bookkeeping off your plate.</h3>
@@ -115,27 +104,13 @@
       <div>
         <div class="rule"></div>
         <div class="links">
-          <a href="https://www.facebook.com/profile.php?id=61576265664786" target="_blank" rel="noopener">Facebook</a> •
-          <a href="https://www.yelp.com/biz/mcknight-todd-bookkeeping-toledo" target="_blank" rel="noopener">Yelp</a> •
-          <a href="tel:+15412722202">(541) 272-2202</a> •
+          <a href="https://www.facebook.com/profile.php?id=61576265664786" target="_blank">Facebook</a> •
+          <a href="https://www.yelp.com/biz/mcknight-todd-bookkeeping-toledo" target="_blank">Yelp</a> •
           <a href="mailto:dakota@mcknighttoddbookkeeping.com">dakota@mcknighttoddbookkeeping.com</a>
         </div>
         <p class="small" style="margin-top:12px;">© <span id="year"></span> McKnight Todd Bookkeeping LLC. All rights reserved.</p>
       </div>
     </div>
   </footer>
-
-  <script>
-    function toggleNav() {
-      var nav = document.getElementById("mySidenav");
-      if (nav.style.width === "250px") {
-        nav.style.width = "0";
-      } else {
-        nav.style.width = "250px";
-      }
-    }
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-
 </body>
 </html>
