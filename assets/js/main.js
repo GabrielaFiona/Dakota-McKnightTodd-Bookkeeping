@@ -1,55 +1,45 @@
 document.addEventListener("DOMContentLoaded", () => {
-  /* =========================
-     1) FOOTER YEAR – applies to all pages
-     ========================= */
-  function setFooterYear() {
-    const yearEls = document.querySelectorAll("#year");
-    const currentYear = new Date().getFullYear();
-    yearEls.forEach((el) => (el.textContent = currentYear));
-  }
-  setFooterYear();
+  /* 1) Dynamic Year in Footer */
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* =========================
-     2) SMOOTH SCROLL FOR [data-scroll-to]
-        (optional – used if you add buttons like:
-        <button data-scroll-to="#services">See Services</button>)
-     ========================= */
-  (function () {
-    const scroller = document.querySelector(".page-wrapper") || window;
+  /* 2) Menu Logic - Close on Scroll */
+  const nav = document.getElementById("mySidenav");
+  const menuBtn = document.getElementById("menuToggleBtn");
 
-    document.querySelectorAll("[data-scroll-to]").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const targetSelector = btn.getAttribute("data-scroll-to");
-        const target = document.querySelector(targetSelector);
-        if (!target) return;
+  // Function to toggle menu open/close
+  window.toggleNav = function() {
+    if (nav.style.width === "250px") {
+      nav.style.width = "0";
+    } else {
+      nav.style.width = "250px";
+    }
+  };
 
-        const rect = target.getBoundingClientRect();
-        const currentScroll =
-          scroller === window
-            ? window.scrollY || window.pageYOffset
-            : scroller.scrollTop;
-        const offset = currentScroll + rect.top - 40;
+  // Close menu when scrolling
+  window.addEventListener('scroll', () => {
+    if (nav.style.width === "250px") {
+      nav.style.width = "0";
+    }
+  });
 
-        scroller.scrollTo({
-          top: offset,
-          behavior: "smooth",
-        });
-      });
-    });
-  })();
+  // Close menu if clicking outside of it (Optional UX improvement)
+  document.addEventListener('click', (event) => {
+    const isClickInside = nav.contains(event.target) || menuBtn.contains(event.target);
+    if (!isClickInside && nav.style.width === "250px") {
+      nav.style.width = "0";
+    }
+  });
 
-  /* =========================
-     3) CONTACT FORM HANDLER – only runs on contact page
-     ========================= */
+  /* 3) Contact Form Handler */
   const form = document.getElementById("contact-form");
   const statusEl = document.getElementById("form-status");
 
   if (form && statusEl) {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-
       statusEl.textContent = "Sending…";
-
+      
       const data = new FormData(form);
 
       try {
@@ -62,22 +52,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (res.ok) {
           statusEl.textContent = "Message sent! I’ll get back to you soon.";
           form.reset();
-          setTimeout(() => (statusEl.textContent = ""), 6000);
         } else {
-          let message = "Hmm, something went wrong. Please try again.";
-          try {
-            const json = await res.json();
-            if (json && json.errors && json.errors[0]?.message) {
-              message = json.errors[0].message;
-            }
-          } catch (_) {
-            /* ignore JSON parse error and use default message */
-          }
-          statusEl.textContent = message;
+          statusEl.textContent = "Something went wrong. Please try again.";
         }
       } catch (err) {
-        statusEl.textContent =
-          "Network error. Please check your connection and try again.";
+        statusEl.textContent = "Network error. Please try again.";
       }
     });
   }
