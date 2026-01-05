@@ -10,30 +10,44 @@ document.addEventListener("DOMContentLoaded", () => {
   setFooterYear();
 
   /* =========================
-     2) MENU TOGGLE & SCROLL BEHAVIOR
+     2) MENU TOGGLE & ANIMATION
      ========================= */
   const nav = document.getElementById("mySidenav");
   const menuBtn = document.querySelector(".menu-btn");
 
+  // Global toggle function
   window.toggleNav = function() {
-    if (nav.style.width === "250px") {
+    // Check if open by width or class
+    const isOpen = nav.style.width === "220px";
+
+    if (isOpen) {
+      // Close it
       nav.style.width = "0";
+      menuBtn.classList.remove("is-active");
     } else {
-      nav.style.width = "250px";
+      // Open it
+      nav.style.width = "220px"; // New cleaner width
+      menuBtn.classList.add("is-active");
     }
   };
 
   // Close menu when scrolling
   window.addEventListener("scroll", () => {
-    if (nav.style.width === "250px") {
+    if (nav.style.width === "220px") {
       nav.style.width = "0";
+      menuBtn.classList.remove("is-active");
     }
   });
 
   // Close menu if clicking outside
   document.addEventListener("click", (e) => {
-    if (nav.style.width === "250px" && !nav.contains(e.target) && !menuBtn.contains(e.target)) {
+    if (
+      nav.style.width === "220px" && 
+      !nav.contains(e.target) && 
+      !menuBtn.contains(e.target)
+    ) {
       nav.style.width = "0";
+      menuBtn.classList.remove("is-active");
     }
   });
 
