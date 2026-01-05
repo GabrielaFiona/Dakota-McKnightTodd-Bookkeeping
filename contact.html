@@ -4,117 +4,95 @@
   <meta charset="UTF-8" />
   <title>Contact – McKnight Todd Bookkeeping</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <link rel="stylesheet" href="assets/CSS/site.css" />
-
-  <style>
-    .menu-btn { position: fixed; top: 20px; left: 20px; z-index: 1000; background: none; border: none; cursor: pointer; padding: 10px; }
-    .menu-btn span { display: block; width: 30px; height: 3px; background-color: #d4af37; margin: 6px 0; transition: 0.4s; }
-    .side-nav { height: 100%; width: 0; position: fixed; z-index: 999; top: 0; left: 0; background-color: #323C54; overflow-x: hidden; transition: 0.5s; padding-top: 80px; box-shadow: 2px 0 5px rgba(0,0,0,0.5); }
-    .side-nav a { padding: 15px 30px; text-decoration: none; font-size: 1.2rem; color: #f1f1f1; display: block; transition: 0.3s; font-family: sans-serif; border-bottom: 1px solid rgba(255,255,255,0.1); }
-    .side-nav a:hover { color: #d4af37; background-color: rgba(0,0,0,0.2); }
-    .side-nav .close-btn { position: absolute; top: 10px; right: 20px; font-size: 36px; margin-left: 50px; background: none; border: none; color: #fff; cursor: pointer; }
-  </style>
-
   <script src="assets/js/main.js" defer></script>
 </head>
 
 <body>
-  <button class="menu-btn" onclick="toggleNav()" aria-label="Open Menu">
-    <span></span><span></span><span></span>
-  </button>
+
+  <header class="site-header">
+    <a href="index.html" class="brand-logo">McKnight Todd Bookkeeping</a>
+    <button class="menu-btn" onclick="toggleNav()" aria-label="Open Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
 
   <div id="mySidenav" class="side-nav">
-    <button class="close-btn" onclick="toggleNav()">&times;</button>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
     <a href="contact.html">Contact</a>
+    <a href="https://calendly.com/mcknighttoddbookkeeping" target="_blank" class="nav-book-btn">Book Consultation</a>
   </div>
 
   <section class="hero on-dark center">
-  <div class="container">
-    <h1>Let’s Connect</h1>
-    <div class="accent-line" style="margin:auto;"></div>
-    <p class="lead on-dark" style="max-width: 42rem; margin: 0 auto;">
-      Whether you’re ready to get started or just have a few questions, I’d love to hear from you.
-      Let’s simplify your bookkeeping together and give you clarity you can count on.
-    </p>
-  </div>
-</section>
-
-<section class="section contact-section">
-  <div class="container split">
-    <div>
-      <h2>Get in Touch</h2>
-      <p class="muted">
-        I’m here to help small business owners and entrepreneurs take control of their books with clarity and confidence. Reach out through any of the options below or send me a quick message using the form.
+    <div class="container">
+      <h1>Let’s Connect</h1>
+      <div class="accent-line" style="margin:auto;"></div>
+      <p class="lead on-dark" style="max-width: 42rem; margin: 0 auto;">
+        Whether you’re ready to get started or just have a few questions, I’d love to hear from you.
+        Let’s simplify your bookkeeping together and give you clarity you can count on.
       </p>
-      <ul class="contact-list mt-12">
-        <li><strong>Email:</strong> <a href="mailto:dakota@mcknighttoddbookkeeping.com">dakota@mcknighttoddbookkeeping.com</a></li>
-        <li><strong>Phone:</strong> <a href="tel:+15412722202">(541) 272-2202</a></li>
-        <li><strong>Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=61576265664786" target="_blank" rel="noopener">Visit Page</a></li>
-        <li><strong>Yelp:</strong> <a href="https://www.yelp.com/biz/mcknight-todd-bookkeeping-toledo" target="_blank" rel="noopener">Read Reviews</a></li>
-      </ul>
     </div>
+  </section>
 
-    <div class="contact-form">
-      <h3>Send a Message</h3>
-     <form id="contact-form" action="https://formspree.io/f/movbznqo" method="POST">
-  <input type="hidden" name="_subject" value="New message from the website — Contact Page">
-
-  <input type="text" name="_gotcha" style="display:none">
-
-  <label for="name">Name</label>
-  <input type="text" id="name" name="name" placeholder="Your name" required>
-
-  <label for="email">Email</label>
-  <input type="email" id="email" name="email" placeholder="Your email" required>
-
-  <label for="message">Message</label>
-  <textarea id="message" name="message" placeholder="How can I help?" rows="5" required></textarea>
-
-  <button type="submit" class="btn btn-gold">Send Message</button>
-  <p id="form-status" class="status" role="status" aria-live="polite"></p>
-</form>
-
-    </div>
-  </div>
-</section>
-
-<section class="section cta-strip on-dark center">
-  <div class="container">
-    <h2 class="on-dark">Prefer to schedule directly?</h2>
-    <p class="muted on-dark">Book a consultation that fits your calendar — no back and forth.</p>
-    <a class="btn btn-gold mt-12" href="https://calendly.com/mcknighttoddbookkeeping" target="_blank" rel="noopener">Book on Calendly</a>
-  </div>
-</section>
-
-<footer class="footer section on-dark">
-  <div class="container wrap">
-    <div>
-      <div class="rule"></div>
-      <div class="links">
-        <a href="https://www.facebook.com/profile.php?id=61576265664786" target="_blank" rel="noopener">Facebook</a> •
-        <a href="https://www.yelp.com/biz/mcknight-todd-bookkeeping-toledo" target="_blank" rel="noopener">Yelp</a> •
-        <a href="tel:+15412722202">(541) 272-2202</a> •
-        <a href="mailto:dakota@mcknighttoddbookkeeping.com">dakota@mcknighttoddbookkeeping.com</a>
+  <section class="section contact-section">
+    <div class="container split">
+      <div>
+        <h2>Get in Touch</h2>
+        <p class="muted">
+          I’m here to help small business owners and entrepreneurs take control of their books with clarity and confidence. Reach out through any of the options below or send me a quick message using the form.
+        </p>
+        <ul class="contact-list mt-12">
+          <li><strong>Email:</strong> <a href="mailto:dakota@mcknighttoddbookkeeping.com">dakota@mcknighttoddbookkeeping.com</a></li>
+          <li><strong>Phone:</strong> <a href="tel:+15412722202">(541) 272-2202</a></li>
+          <li><strong>Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=61576265664786" target="_blank" rel="noopener">Visit Page</a></li>
+          <li><strong>Yelp:</strong> <a href="https://www.yelp.com/biz/mcknight-todd-bookkeeping-toledo" target="_blank" rel="noopener">Read Reviews</a></li>
+        </ul>
       </div>
-      <p class="small" style="margin-top:12px;">© <span id="year"></span> McKnight Todd Bookkeeping LLC. All rights reserved.</p>
-    </div>
-  </div>
-</footer>
 
-<script>
-  function toggleNav() {
-    var nav = document.getElementById("mySidenav");
-    if (nav.style.width === "250px") {
-      nav.style.width = "0";
-    } else {
-      nav.style.width = "250px";
-    }
-  }
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+      <div class="contact-form">
+        <h3>Send a Message</h3>
+        <form id="contact-form" action="https://formspree.io/f/movbznqo" method="POST">
+          <input type="hidden" name="_subject" value="New message from the website — Contact Page">
+          <input type="text" name="_gotcha" style="display:none">
+
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Your email" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="How can I help?" rows="5" required></textarea>
+
+          <button type="submit" class="btn btn-gold">Send Message</button>
+          <p id="form-status" class="status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-strip on-dark center">
+    <div class="container">
+      <h2 class="on-dark">Prefer to schedule directly?</h2>
+      <p class="muted on-dark">Book a consultation that fits your calendar — no back and forth.</p>
+      <a class="btn btn-gold mt-12" href="https://calendly.com/mcknighttoddbookkeeping" target="_blank" rel="noopener">Book on Calendly</a>
+    </div>
+  </section>
+
+  <footer class="footer section on-dark">
+    <div class="container wrap">
+      <div>
+        <div class="rule"></div>
+        <div class="links">
+          <a href="https://www.facebook.com/profile.php?id=61576265664786" target="_blank" rel="noopener">Facebook</a> •
+          <a href="https://www.yelp.com/biz/mcknight-todd-bookkeeping-toledo" target="_blank" rel="noopener">Yelp</a> •
+          <a href="mailto:dakota@mcknighttoddbookkeeping.com">dakota@mcknighttoddbookkeeping.com</a>
+        </div>
+        <p class="small" style="margin-top:12px;">© <span id="year"></span> McKnight Todd Bookkeeping LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 </body>
-  </html>
+</html>
