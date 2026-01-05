@@ -11,7 +11,7 @@
   --ink:#1b2439;
   --ink-80:#2c354d;
   --white:#ffffff;
-  /* NEW: Height for the sticky header so content doesn't get hidden */
+  /* NEW VARIABLE FOR HEADER HEIGHT */
   --header-height: 80px;
 }
 
@@ -36,98 +36,8 @@ body{
   background:var(--blue-900);
   color:var(--ink);
   line-height:1.6;
-  /* NEW: Push content down so the sticky header doesn't cover it */
+  /* PUSH CONTENT DOWN SO HEADER DOESNT COVER IT */
   padding-top: var(--header-height);
-}
-
-/* =========================
-   NEW: STICKY HEADER & NAV
-   ========================= */
-.site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: var(--header-height);
-  background-color: var(--blue-900);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-}
-
-.brand-logo {
-  font-family: "Bodoni Moda", serif;
-  font-size: 1.2rem;
-  color: var(--white);
-  text-decoration: none;
-  letter-spacing: 0.5px;
-  font-weight: 700;
-}
-
-.menu-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-  /* Removed fixed positioning since it now lives inside .site-header */
-}
-
-.menu-btn span {
-  display: block;
-  width: 30px;
-  height: 3px;
-  background-color: var(--gold);
-  margin: 6px 0;
-  transition: 0.4s;
-}
-
-/* Updated Side Nav styling to match site theme */
-.side-nav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 999;
-  /* Starts below the header */
-  top: var(--header-height);
-  left: 0;
-  background-color: var(--blue-900);
-  overflow-x: hidden;
-  transition: 0.4s ease-in-out;
-  padding-top: 30px;
-  border-top: 1px solid rgba(255,255,255,0.05);
-  box-shadow: 2px 0 10px rgba(0,0,0,0.3);
-}
-
-.side-nav a {
-  padding: 20px 30px;
-  text-decoration: none;
-  font-size: 1.3rem;
-  color: #f1f1f1;
-  display: block;
-  transition: 0.3s;
-  font-family: "Bodoni Moda", serif; /* Updated to match headings */
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-
-.side-nav a:hover {
-  color: var(--gold);
-  background-color: rgba(0,0,0,0.2);
-  padding-left: 40px; /* Slide effect on hover */
-}
-
-/* Specific style for the Booking button inside menu */
-.side-nav a.nav-book-btn {
-  background: rgba(201, 155, 65, 0.15);
-  color: var(--gold);
-  border-left: 4px solid var(--gold);
-}
-.side-nav a.nav-book-btn:hover {
-  background: var(--gold);
-  color: var(--ink);
 }
 
 /* =========================
@@ -202,7 +112,6 @@ h3{
   border-radius:2px;
   margin-left:auto;
   margin-right:auto;
-
 }
 
 /* =========================
@@ -665,9 +574,109 @@ h3{
   text-align:center;
 }
 
-/* =========================
-   NEW: REVIEW WIDGET STYLES
-   ========================= */
+
+/* =========================================================
+   NEW UPDATES: STICKY HEADER & REVIEWS
+   (Appended below to avoid breaking original code)
+   ========================================================= */
+
+/* 1. STICKY HEADER CONTAINER 
+   Ensures logo and menu button sit side-by-side */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--blue-900);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  z-index: 1000;
+  
+  /* THIS IS THE KEY FIX FOR STACKING: */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  padding: 0 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.brand-logo {
+  font-family: "Bodoni Moda", serif;
+  font-size: 1.2rem;
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* 2. MENU BUTTON (Migrated from HTML Styles) */
+.menu-btn {
+  /* Removed 'position: fixed' because it is now inside the flex header */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.menu-btn span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: var(--gold);
+  margin: 5px 0;
+  transition: 0.4s;
+}
+
+/* 3. SIDE NAV (Migrated from HTML Styles) */
+.side-nav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 999;
+  /* Start BELOW the new sticky header */
+  top: var(--header-height);
+  left: 0;
+  background-color: var(--blue-900);
+  overflow-x: hidden;
+  transition: 0.4s ease-in-out;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+}
+
+.side-nav a {
+  padding: 20px 30px;
+  text-decoration: none;
+  font-size: 1.3rem;
+  color: #f1f1f1;
+  display: block;
+  transition: 0.3s;
+  font-family: "Bodoni Moda", serif;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.side-nav a:hover {
+  color: var(--gold);
+  background-color: rgba(255,255,255,0.05);
+  padding-left: 40px;
+}
+
+/* Booking button highlight in menu */
+.side-nav a.nav-book-btn {
+  background: rgba(201, 155, 65, 0.15);
+  color: var(--gold);
+  border-left: 4px solid var(--gold);
+}
+.side-nav a.nav-book-btn:hover {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+/* 4. REVIEWS SECTION STYLES */
 .review-block {
   background: var(--white);
   border: 1px solid rgba(27,36,57,.12);
@@ -679,40 +688,12 @@ h3{
   position: relative;
   text-align: center;
 }
-
-.review-stars {
-  color: var(--gold);
-  font-size: 1.4rem;
-  margin-bottom: 12px;
-}
-
-.review-text {
-  font-size: 1.15rem;
-  font-style: italic;
-  color: var(--ink);
-  line-height: 1.7;
-}
-
-.review-author {
-  margin-top: 16px;
-  font-weight: 700;
-  font-family: "Bodoni Moda", serif;
-  color: var(--blue-900);
-}
-
+.review-stars { color: var(--gold); font-size: 1.4rem; margin-bottom: 12px; }
+.review-text { font-size: 1.15rem; font-style: italic; color: var(--ink); line-height: 1.7; }
+.review-author { margin-top: 16px; font-weight: 700; font-family: "Bodoni Moda", serif; color: var(--blue-900); }
 .review-google-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 20px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--blue-300);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: 0.2s;
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 20px;
+  font-size: 0.95rem; font-weight: 600; color: var(--blue-300);
+  text-decoration: none; border-bottom: 1px solid transparent;
 }
-.review-google-btn:hover {
-  color: var(--blue-900);
-  border-bottom-color: var(--blue-900);
-}
+.review-google-btn:hover { color: var(--blue-900); border-bottom-color: var(--blue-900); }
